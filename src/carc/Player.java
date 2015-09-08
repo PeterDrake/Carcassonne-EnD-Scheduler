@@ -7,7 +7,7 @@ public class Player {
 	 public int followernum;
 	 
 	 public Player() {
-		//followernum = FOLLOWERLIMIT;
+		followernum = FOLLOWERLIMIT;
 	}
 
 	public static void main(String[] args) {
