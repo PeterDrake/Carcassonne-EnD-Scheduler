@@ -1,9 +1,11 @@
-package carc;
+package carc.Board;
+
+import carc.Tile;
 
 public class Board {
-	private final int boardSize = 60;
 	
-	Tile[][] tiles;
+	private final int boardSize = 60;
+	private Tile[][] tiles;
 	
 	public Board(){
 		tiles = new Tile[boardSize][boardSize];
@@ -17,4 +19,6 @@ public class Board {
 	public void placeTile(Tile, int x, int y){
 		
 	}
+	
+	
 }
