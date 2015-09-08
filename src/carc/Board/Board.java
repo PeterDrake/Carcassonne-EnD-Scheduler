@@ -16,7 +16,7 @@ public class Board {
 		}
 	}
 	
-	public void placeTile(Tile, int x, int y){
+	public void placeTile(Tile tile, int x, int y){
 		
 	}
 	
