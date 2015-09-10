@@ -5,9 +5,11 @@ public class Player {
 
 	 private int FOLLOWERLIMIT = 7;
 	 public int followernum;
+	 private int Score;
 	 
 	 public Player() {
 		followernum = FOLLOWERLIMIT;
+		Score = 0;
 	}
 
 	public static void main(String[] args) {
@@ -18,4 +20,10 @@ public class Player {
 		System.out.println("player 2 has follower:" + player2.followernum);
 	}
 
+	public int getScore(){
+		return Score;
+	}
+	public void setScore(int score){
+		Score = score;
+	}
 }
