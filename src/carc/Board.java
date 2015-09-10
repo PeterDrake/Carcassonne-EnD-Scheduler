@@ -60,6 +60,15 @@ public class Board {
 			return false;
 		}
 	}
+
+	public void run() {
+		Tile t = new Tile();
+		placeTile(t, 30, 30);
+		displayScore();
+		System.out.println("Board Created");
+		System.out.println("Tile placed at 30, 30");
+		
+	}
 	
 	
 	
