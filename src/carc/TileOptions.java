@@ -1,5 +1,5 @@
 package carc;
 
 public enum TileOptions {
-	FARM, ROAD, CASTLE
+	FARM, ROAD, CASTLE, CLOISTER
 }
