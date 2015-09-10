@@ -6,7 +6,10 @@ public class Board {
 	private final int boardSize = 60;
 	private Tile[][] tiles;
 	private Player[] players;
+	private int tilecount = 72;
 	
+
+
 	public Board(int numberplayers){
 		tiles = new Tile[boardSize][boardSize];
 		for(int i = 0; i< boardSize; i++){
@@ -36,12 +39,33 @@ public class Board {
 		}
 		return scores;
 	}
+	
 	public Player[] getPlayers(){
 		return players;
 	}
 	
+
 	public  int cloisterCompletion( Tile t){
 		return -1;
 	}
+
+	public int getTilecount() {
+		return tilecount;
+	}
+
+	public void setTilecount(int tc) {
+		this.tilecount = tc;
+	}
+	
+	public boolean isGameOver(){
+		if( getTilecount() == 0){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+
 	
 }
