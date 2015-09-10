@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class BoardTest {
 	int numPlayers = 2;
-Board b = new Board(numPlayers);
+    Board b = new Board(numPlayers);
 
 	@Test
 	public void placeTileTest() {
@@ -25,4 +25,13 @@ Board b = new Board(numPlayers);
 		}
 		assertArrayEquals(test, b.displayScore());
 	}
+	
+	@Test
+	public void isGameOverTest(){
+		assertFalse(b.isGameOver());
+		b.setTilecount(0);
+		assertTrue(b.isGameOver());
+		
+	}
 }
+
