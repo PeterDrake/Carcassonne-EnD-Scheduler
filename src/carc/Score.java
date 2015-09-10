@@ -1,5 +1,7 @@
 package carc;
 
+import carc.Tile;
+
 public class Score {
 
 	private final int COMPCLOISTER =  9;
@@ -17,4 +19,5 @@ public class Score {
 		return completed * COMPCLOISTER; 
 	}
 
+	
 }

@@ -40,6 +40,8 @@ public class Board {
 		return players;
 	}
 	
-	
+	public  int cloisterCompletion( Tile t){
+		return -1;
+	}
 	
 }
