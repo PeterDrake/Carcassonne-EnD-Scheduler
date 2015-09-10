@@ -5,11 +5,14 @@ public class Player {
 
 	 private int FOLLOWERLIMIT = 7;
 	 private int followernum;
-	 
+	 private String name;
+	
+
 	private int Score;
 	 
 	 public Player() {
 		followernum = FOLLOWERLIMIT;
+		name = "player";
 		Score = 0;
 	}
 
@@ -28,6 +31,13 @@ public class Player {
 		Score = score;
 	}
 	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getFollowernum() {
 		return followernum;
 	}

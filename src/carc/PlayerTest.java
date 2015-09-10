@@ -8,8 +8,11 @@ public class PlayerTest {
 
 	@Test
 	public void test() {
-		Player player = new Player();
-		assertEquals("followet limit", 7 , player.getFollowernum());
+		Player player1 = new Player();
+		assertEquals("followet limit", 7 , player1.getFollowernum());
+		player1.setName("Bob");
+		assertEquals("Bob", player1.getName());
+		
 	}
 
 
