@@ -17,8 +17,11 @@ public class Board {
 	}
 	
 	public void placeTile(Tile tile, int x, int y){
-		
+		tiles[x][y] = tile;
 	}
 	
+	public Tile getTile(int x, int y){
+		return tiles[x][y];
+	}
 	
 }
