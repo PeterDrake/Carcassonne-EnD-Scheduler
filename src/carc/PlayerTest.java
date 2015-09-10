@@ -9,7 +9,7 @@ public class PlayerTest {
 	@Test
 	public void test() {
 		Player player = new Player();
-		assertEquals("followet limit", 7 , player.followernum);
+		assertEquals("followet limit", 7 , player.getFollowernum());
 	}
 
 

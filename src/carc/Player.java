@@ -4,8 +4,9 @@ package carc;
 public class Player {
 
 	 private int FOLLOWERLIMIT = 7;
-	 public int followernum;
-	 private int Score;
+	 private int followernum;
+	 
+	private int Score;
 	 
 	 public Player() {
 		followernum = FOLLOWERLIMIT;
@@ -25,5 +26,13 @@ public class Player {
 	}
 	public void setScore(int score){
 		Score = score;
+	}
+	
+	public int getFollowernum() {
+		return followernum;
+	}
+
+	public void setFollowernum(int followernum) {
+		this.followernum = followernum;
 	}
 }
