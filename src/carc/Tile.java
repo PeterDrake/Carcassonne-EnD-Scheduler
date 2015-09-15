@@ -1,54 +1,54 @@
 package carc;
 
-import static carc.TileOptions.*;
+import static carc.Terrain.*;
 
 public class Tile {
 
-	public TileOptions getNE() {
+	public Terrain getNE() {
 		return ne;
 	}
 
-	public TileOptions getNW() {
+	public Terrain getNW() {
 		return nw;
 	}
 	
-	public TileOptions getWN() {
+	public Terrain getWN() {
 		return wn;
 	}
 
-	public TileOptions getWS() {
+	public Terrain getWS() {
 		return ws;
 	}
 
-	public TileOptions getSW() {
+	public Terrain getSW() {
 		return sw;
 	}
 
-	public TileOptions getSE() {
+	public Terrain getSE() {
 		return se;
 	}
 
-	public TileOptions getES() {
+	public Terrain getES() {
 		return es;
 	}
 
-	public TileOptions getEN() {
+	public Terrain getEN() {
 		return en;
 	}
 
-	private TileOptions east;
-	private TileOptions north;
-	private TileOptions south;
-	private TileOptions west;
-	private TileOptions middle;
-	private TileOptions nw;
-	private TileOptions ne;
-	private TileOptions wn;
-	private TileOptions ws;
-	private TileOptions sw;
-	private TileOptions se;
-	private TileOptions es;
-	private TileOptions en;
+	private Terrain east;
+	private Terrain north;
+	private Terrain south;
+	private Terrain west;
+	private Terrain middle;
+	private Terrain nw;
+	private Terrain ne;
+	private Terrain wn;
+	private Terrain ws;
+	private Terrain sw;
+	private Terrain se;
+	private Terrain es;
+	private Terrain en;
 
 	/** this constructor creates the first tile**/
 	public Tile() {
@@ -66,7 +66,7 @@ public class Tile {
 	}
 
 	public Tile(String tileEncoding) {
-		TileOptions[] tileStuff=new TileOptions[tileEncoding.length()];
+		Terrain[] tileStuff=new Terrain[tileEncoding.length()];
 		for(int x=0; x<tileEncoding.length(); x++){
 			if(tileEncoding.charAt(x)=='r'){
 				tileStuff[x]=ROAD;
@@ -95,19 +95,19 @@ public class Tile {
 		wn = tileStuff[12];
 	}
 
-	public TileOptions getEast() {
+	public Terrain getEast() {
 		return east;
 	}
 
-	public TileOptions getNorth() {
+	public Terrain getNorth() {
 		return north;
 	}
 
-	public TileOptions getSouth() {
+	public Terrain getSouth() {
 		return south;
 	}
 
-	public TileOptions getWest() {
+	public Terrain getWest() {
 		return west;
 	}
 
