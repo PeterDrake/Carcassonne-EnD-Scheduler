@@ -2,11 +2,20 @@ package carc;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class BoardTest {
-	int numPlayers = 2;
-    Board b = new Board(numPlayers);
+	
+	private int numPlayers;
+	
+    private Board b;
+
+    @Before
+    public void setUp() {
+    		numPlayers = 2;
+    		b = new Board(numPlayers);
+    }
 
 	@Test
 	public void placeTileTest() {
@@ -31,7 +40,7 @@ public class BoardTest {
 		assertFalse(b.isGameOver());
 		b.setTileCount(0);
 		assertTrue(b.isGameOver());
-		
 	}
+
 }
 
