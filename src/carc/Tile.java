@@ -51,7 +51,10 @@ public class Tile {
 		east = ROAD;
 		middle = ROAD;
 	}
-
+/**
+ *Constructor for all tiles(except initial tile). 
+ *
+ */
 	public Tile(String tileEncoding) {
 		Terrain[] tileStuff = new Terrain[tileEncoding.length()];
 		for (int x = 0; x < tileEncoding.length(); x++) {
@@ -82,6 +85,10 @@ public class Tile {
 		wn = tileStuff[12];
 	}
 
+	/**
+	 *Getters for the terrain for each tile.
+	 * 
+	 */
 	public Terrain getEast() {
 		return east;
 	}
