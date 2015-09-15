@@ -13,45 +13,47 @@ public class Tile {
 	
 	
 	
-	private Terrain east;
+	private Sector east;
 
-	private Terrain en;
+	private Sector en;
 
-	private Terrain es;
+	private Sector es;
 
-	private Terrain middle;
+	private Sector middle;
 
-	private Terrain ne;
+	private Sector ne;
 
-	private Terrain north;
+	private Sector north;
 
-	private Terrain nw;
+	private Sector nw;
 
-	private Terrain se;
+	private Sector se;
 
-	private Terrain south;
+	private Sector south;
 
-	private Terrain sw;
+	private Sector sw;
 
-	private Terrain west;
+	private Sector west;
 
-	private Terrain wn;
+	private Sector wn;
 
-	private Terrain ws;
+	private Sector ws;
 
 	/** This constructor creates the initial tile. */
 	public Tile() {
-		nw = CASTLE;
-		ne = CASTLE;
-		wn = FARM;
-		ws = FARM;
-		sw = FARM;
-		se = FARM;
-		es = FARM;
-		en = FARM;
-		west = ROAD;
-		east = ROAD;
-		middle = ROAD;
+		nw = new Sector(CASTLE);
+		ne = new Sector(CASTLE);
+		wn = new Sector(FARM);
+		ws = new Sector(FARM);
+		sw = new Sector(FARM);
+		se = new Sector(FARM);
+		es = new Sector(FARM);
+		en = new Sector(FARM);
+		west = new Sector(ROAD);
+		east = new Sector(ROAD);
+		middle = new Sector(ROAD);
+		north = new Sector(null);
+		south = new Sector(null);
 	}
 
 	public Tile(String tileEncoding) {
@@ -71,67 +73,67 @@ public class Tile {
 				tileStuff[x] = null;
 			}
 		}
-		north = tileStuff[0];
-		east = tileStuff[1];
-		south = tileStuff[2];
-		west = tileStuff[3];
-		middle = tileStuff[4];
-		nw = tileStuff[5];
-		ne = tileStuff[6];
-		en = tileStuff[7];
-		es = tileStuff[8];
-		se = tileStuff[9];
-		sw = tileStuff[10];
-		ws = tileStuff[11];
-		wn = tileStuff[12];
+		north = new Sector(tileStuff[0]);
+		east = new Sector(tileStuff[1]);
+		south = new Sector(tileStuff[2]);
+		west = new Sector(tileStuff[3]);
+		middle = new Sector(tileStuff[4]);
+		nw = new Sector(tileStuff[5]);
+		ne = new Sector(tileStuff[6]);
+		en = new Sector(tileStuff[7]);
+		es = new Sector(tileStuff[8]);
+		se = new Sector(tileStuff[9]);
+		sw = new Sector(tileStuff[10]);
+		ws = new Sector(tileStuff[11]);
+		wn = new Sector(tileStuff[12]);
 	}
 
 	public Terrain getEast() {
-		return east;
+		return east.getTerrain();
 	}
 
 	public Terrain getEN() {
-		return en;
+		return en.getTerrain();
 	}
 
 	public Terrain getES() {
-		return es;
+		return es.getTerrain();
 	}
 
 	public Terrain getNE() {
-		return ne;
+		return ne.getTerrain();
 	}
 
 	public Terrain getNorth() {
-		return north;
+		return north.getTerrain();
 	}
 
 	public Terrain getNW() {
-		return nw;
+		return nw.getTerrain();
 	}
 
 	public Terrain getSE() {
-		return se;
+		return se.getTerrain();
 	}
 
 	public Terrain getSouth() {
-		return south;
+		return south.getTerrain();
 	}
 
 	public Terrain getSW() {
-		return sw;
+		return sw.getTerrain();
 	}
 
 	public Terrain getWest() {
-		return west;
+		return west.getTerrain();
 	}
 
 	public Terrain getWN() {
-		return wn;
+		return wn.getTerrain();
 	}
 
 	public Terrain getWS() {
-		return ws;
+		return ws.getTerrain();
 	}
 
 	public Tile returnTile() {
