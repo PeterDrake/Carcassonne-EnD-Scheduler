@@ -10,7 +10,9 @@ import static carc.Terrain.*;
  * while en is the right (east) side of the northeast corner.
  */
 public class Tile {
-
+	
+	
+	
 	private Terrain east;
 
 	private Terrain en;
