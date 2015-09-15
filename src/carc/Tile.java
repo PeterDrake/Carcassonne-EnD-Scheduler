@@ -2,55 +2,42 @@ package carc;
 
 import static carc.Terrain.*;
 
+/**
+ * A game tile.
+ * 
+ * The tile has 13 Terrains on it. They are referred to by direction. In the
+ * corners there are two: ne is the upper (north) side of the northeast corner,
+ * while en is the right (east) side of the northeast corner.
+ */
 public class Tile {
 
-	public Terrain getNE() {
-		return ne;
-	}
-
-	public Terrain getNW() {
-		return nw;
-	}
-	
-	public Terrain getWN() {
-		return wn;
-	}
-
-	public Terrain getWS() {
-		return ws;
-	}
-
-	public Terrain getSW() {
-		return sw;
-	}
-
-	public Terrain getSE() {
-		return se;
-	}
-
-	public Terrain getES() {
-		return es;
-	}
-
-	public Terrain getEN() {
-		return en;
-	}
-
 	private Terrain east;
-	private Terrain north;
-	private Terrain south;
-	private Terrain west;
-	private Terrain middle;
-	private Terrain nw;
-	private Terrain ne;
-	private Terrain wn;
-	private Terrain ws;
-	private Terrain sw;
-	private Terrain se;
-	private Terrain es;
+
 	private Terrain en;
 
-	/** this constructor creates the first tile**/
+	private Terrain es;
+
+	private Terrain middle;
+
+	private Terrain ne;
+
+	private Terrain north;
+
+	private Terrain nw;
+
+	private Terrain se;
+
+	private Terrain south;
+
+	private Terrain sw;
+
+	private Terrain west;
+
+	private Terrain wn;
+
+	private Terrain ws;
+
+	/** This constructor creates the initial tile. */
 	public Tile() {
 		nw = CASTLE;
 		ne = CASTLE;
@@ -66,18 +53,18 @@ public class Tile {
 	}
 
 	public Tile(String tileEncoding) {
-		Terrain[] tileStuff=new Terrain[tileEncoding.length()];
-		for(int x=0; x<tileEncoding.length(); x++){
-			if(tileEncoding.charAt(x)=='r'){
-				tileStuff[x]=ROAD;
-			}else if(tileEncoding.charAt(x)=='l'){
-				tileStuff[x]=CLOISTER;
-			}else if(tileEncoding.charAt(x)=='c'){
-				tileStuff[x]=CASTLE;
-			}else if(tileEncoding.charAt(x)=='f'){
-				tileStuff[x]=FARM;
-			}else{
-				tileStuff[x]=null;
+		Terrain[] tileStuff = new Terrain[tileEncoding.length()];
+		for (int x = 0; x < tileEncoding.length(); x++) {
+			if (tileEncoding.charAt(x) == 'r') {
+				tileStuff[x] = ROAD;
+			} else if (tileEncoding.charAt(x) == 'l') {
+				tileStuff[x] = CLOISTER;
+			} else if (tileEncoding.charAt(x) == 'c') {
+				tileStuff[x] = CASTLE;
+			} else if (tileEncoding.charAt(x) == 'f') {
+				tileStuff[x] = FARM;
+			} else {
+				tileStuff[x] = null;
 			}
 		}
 		north = tileStuff[0];
@@ -99,19 +86,52 @@ public class Tile {
 		return east;
 	}
 
+	public Terrain getEN() {
+		return en;
+	}
+
+	public Terrain getES() {
+		return es;
+	}
+
+	public Terrain getNE() {
+		return ne;
+	}
+
 	public Terrain getNorth() {
 		return north;
+	}
+
+	public Terrain getNW() {
+		return nw;
+	}
+
+	public Terrain getSE() {
+		return se;
 	}
 
 	public Terrain getSouth() {
 		return south;
 	}
 
+	public Terrain getSW() {
+		return sw;
+	}
+
 	public Terrain getWest() {
 		return west;
+	}
+
+	public Terrain getWN() {
+		return wn;
+	}
+
+	public Terrain getWS() {
+		return ws;
 	}
 
 	public Tile returnTile() {
 		return this;
 	}
+
 }

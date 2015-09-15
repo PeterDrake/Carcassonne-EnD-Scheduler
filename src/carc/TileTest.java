@@ -39,6 +39,6 @@ public class TileTest {
 		assertEquals(FARM, t.getSE());
 		assertEquals(FARM, t.getES());
 		assertEquals(FARM, t.getEN());
-
 	}
+
 }
