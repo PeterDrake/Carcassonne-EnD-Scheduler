@@ -4,12 +4,15 @@ package carc;
 public class Board {
 	
 	private static final int BOARD_WIDTH = 60;
+	
 	private Tile[][] tiles;
+	
 	private Player[] players;
+	
+	/**Number of remaining tiles*/
 	private int tileCount = 72;
 	
-
-
+	/**This is the constructor for the board given the number of players.*/
 	public Board(int numberplayers){
 		tiles = new Tile[BOARD_WIDTH][BOARD_WIDTH];
 		players = new Player[numberplayers];
@@ -18,6 +21,7 @@ public class Board {
 		}
 	}
 	
+	/**Playes a tile at a given x and y in the array.*/
 	public void placeTile(Tile tile, int x, int y){
 		tiles[x][y] = tile;
 	}
@@ -47,6 +51,7 @@ public class Board {
 		this.tileCount = tc;
 	}
 	
+	/**Checks if the game is over based on the number of remaining tiles.*/
 	public boolean isGameOver(){
 		return tileCount == 0;
 	}
