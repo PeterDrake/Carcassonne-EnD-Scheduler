@@ -1,5 +1,6 @@
 package carc;
 
+import java.io.File;
 
 public class Board {
 	
@@ -62,6 +63,16 @@ public class Board {
 		displayScore();
 		System.out.println("Board Created");
 		System.out.println("Tile placed at 30, 30");
+		readFileName();
+	}
+	
+	public void readFileName(){
+		File folder = new File("Tiles");
+		File[] listOfFiles = folder.listFiles();
+		
+		for(int i = 0; i<listOfFiles.length;i++ ){
+			System.out.println(listOfFiles[i].getName());
+		}
 	}
 
 }
