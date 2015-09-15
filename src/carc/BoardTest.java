@@ -29,7 +29,7 @@ public class BoardTest {
 	@Test
 	public void isGameOverTest(){
 		assertFalse(b.isGameOver());
-		b.setTilecount(0);
+		b.setTileCount(0);
 		assertTrue(b.isGameOver());
 		
 	}

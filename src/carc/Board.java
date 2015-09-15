@@ -3,20 +3,15 @@ package carc;
 
 public class Board {
 	
-	private final int boardSize = 60;
+	private static final int BOARD_WIDTH = 60;
 	private Tile[][] tiles;
 	private Player[] players;
-	private int tilecount = 72;
+	private int tileCount = 72;
 	
 
 
 	public Board(int numberplayers){
-		tiles = new Tile[boardSize][boardSize];
-		for(int i = 0; i< boardSize; i++){
-			for(int j = 0; j< boardSize; j++){
-				tiles[i][j] =null;
-			}
-		}
+		tiles = new Tile[BOARD_WIDTH][BOARD_WIDTH];
 		players = new Player[numberplayers];
 		for(int i = 0; i < numberplayers ; i++){
 			players[i] = new Player();
@@ -44,21 +39,16 @@ public class Board {
 		return players;
 	}
 	
-	public int getTilecount() {
-		return tilecount;
+	public int getTileCount() {
+		return tileCount;
 	}
 
-	public void setTilecount(int tc) {
-		this.tilecount = tc;
+	public void setTileCount(int tc) {
+		this.tileCount = tc;
 	}
 	
 	public boolean isGameOver(){
-		if( getTilecount() == 0){
-			return true;
-		}
-		else{
-			return false;
-		}
+		return tileCount == 0;
 	}
 
 	public void run() {
@@ -67,9 +57,6 @@ public class Board {
 		displayScore();
 		System.out.println("Board Created");
 		System.out.println("Tile placed at 30, 30");
-		
 	}
-	
-	
-	
+
 }
