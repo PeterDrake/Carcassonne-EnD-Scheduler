@@ -65,6 +65,8 @@ public class Tile {
 				tileStuff[x] = CASTLE;
 			} else if (tileEncoding.charAt(x) == 'f') {
 				tileStuff[x] = FARM;
+			} else if (tileEncoding.charAt(x) == 'e'){
+				tileStuff[x] = ROAD_END;
 			} else {
 				tileStuff[x] = null;
 			}
