@@ -78,7 +78,7 @@ public class Board {
 	public String[] readFileName(){
 		File folder = new File("Tiles");
 		File[] listOfFiles = folder.listFiles();
-		String[] names = null;
+		String[] names = new String[tileCount];
 		for(int i = 0; i<listOfFiles.length;i++ ){
 			names[i] = listOfFiles[i].getName();
 		}
