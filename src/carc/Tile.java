@@ -53,7 +53,10 @@ public class Tile {
 		north = new Sector(null);
 		south = new Sector(null);
 	}
-
+/**
+ *Constructor for all tiles(except initial tile). 
+ *
+ */
 	public Tile(String tileEncoding) {
 		Terrain[] tileStuff = new Terrain[tileEncoding.length()];
 		for (int x = 0; x < tileEncoding.length(); x++) {
@@ -86,6 +89,10 @@ public class Tile {
 		wn = new Sector(tileStuff[12]);
 	}
 
+	/**
+	 *Getters for the terrain for each tile.
+	 * 
+	 */
 	public Terrain getEast() {
 		return east.getTerrain();
 	}
