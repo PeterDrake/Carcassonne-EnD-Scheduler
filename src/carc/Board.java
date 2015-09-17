@@ -64,7 +64,7 @@ public class Board {
 	public boolean isGameOver(){
 		return tileCount == 0;
 	}
-
+ /** Run method. Also lets people enter their names*/
 	public void run() {
 		Tile t = new Tile();
 		Scanner scan = new Scanner(System.in);

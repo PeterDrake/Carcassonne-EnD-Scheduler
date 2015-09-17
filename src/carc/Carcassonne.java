@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Carcassonne {
 
+	/** Main method creates board, enters number of players, and calls Gui*/
 	public static void main(String [] args){		
 		int numplayers = 0;
 		Scanner s = new Scanner(System.in);
