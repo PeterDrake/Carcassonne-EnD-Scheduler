@@ -20,6 +20,8 @@ public class Board {
 		for(int i = 0; i < numberplayers ; i++){
 			players[i] = new Player();
 		}
+		Tile t = new Tile();
+		placeTile(t, 30, 30);
 	}
 	
 	/**Playes a tile at a given x and y in the array.*/
