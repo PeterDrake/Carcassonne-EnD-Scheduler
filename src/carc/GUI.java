@@ -11,7 +11,7 @@ public class GUI extends JFrame{
 	private static final int DEFAULT_HEIGHT=1200;
 	private static final int DEFAULT_WIDTH=1200;
 	private GridBagConstraints constraints;
-	private JButton button = new JButton("string");
+//	private JButton button = new JButton("string");
 	private JFrame frame;
 	
 	/**
@@ -37,6 +37,7 @@ public class GUI extends JFrame{
 		for(int i=0; i<60; i++){
 			for(int j=0; j<60; j++){
 				if(board.getTile(i, j)!=null){
+					JButton button = new JButton(i + " " + j);
 					constraints.gridx=i;
 					constraints.gridy=j;
 					constraints.gridheight = 1;
