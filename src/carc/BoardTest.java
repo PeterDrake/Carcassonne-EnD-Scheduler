@@ -21,7 +21,7 @@ public class BoardTest {
 	public void placeTileTest() {
 		Tile tile = new Tile();
 		b.placeTile(tile, 1, 1);
-		assertEquals(tile, b.getTile( 1, 1));
+		assertEquals(tile, b.getTileAt( 1, 1));
 	}
 
 	@Test

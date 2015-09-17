@@ -27,8 +27,7 @@ public class Board {
 		for(int i = 0; i < numberplayers ; i++){
 			players[i] = new Player();
 		}
-		Tile t = new Tile();
-		placeTile(t, 30, 30);
+
 	}
 	
 	/**Playes a tile at a given x and y in the array.*/
@@ -36,9 +35,13 @@ public class Board {
 		tiles[x][y] = tile;
 	}
 	
-	public Tile getTile(int x, int y){
+	public Tile getTileAt(int x, int y){
 		return tiles[x][y];
 	}
+	
+	
+	
+	
 	
 	public int[] displayScore(){
 		int[] scores = new int[players.length];

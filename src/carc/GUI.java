@@ -1,8 +1,7 @@
 package carc;
 
 import java.awt.*;
-import java.awt.event.*;
-import java.beans.*;
+
 import javax.swing.*;
 
 public class GUI extends JFrame{
@@ -13,6 +12,7 @@ public class GUI extends JFrame{
 	private GridBagConstraints constraints;
 //	private JButton button = new JButton("string");
 	private JFrame frame;
+	private Image image;
 	
 	/**
 	 * GUI builds frame, inserts GridBag into frame, and exits on close.
@@ -27,6 +27,7 @@ public class GUI extends JFrame{
 		GridBagLayout gameFrame = new GridBagLayout();
 		frame.setLayout(gameFrame);
 		constraints = new GridBagConstraints();
+//		image = new ImageIcon("Tiles/" + board.getTileAt(i, j).encoding + ".png").getImage();
 	}
 	/**	
 	 * 
@@ -36,16 +37,23 @@ public class GUI extends JFrame{
 	public void updateBoard(){
 		for(int i=0; i<60; i++){
 			for(int j=0; j<60; j++){
-				if(board.getTile(i, j)!=null){
-					JButton button = new JButton(i + " " + j);
+				if(board.getTileAt(i, j)!=null){
+//					image = new ImageIcon("Tiles/" + board.getTileAt(i, j).encoding + ".png").getImage();
+//					JFrame tilePanel = new JFrame();
+//					tilePanel.add(image);
+					JButton b = new JButton(board.getTileAt(i, j).encoding);
 					constraints.gridx=i;
 					constraints.gridy=j;
 					constraints.gridheight = 1;
 					constraints.gridwidth = 1;
-					frame.add(button, constraints);
+					frame.add(b, constraints);
 				}
 			}
 		}
 	}
-
+	
+//	public void paintComponent(Graphics g){
+//		g.drawImage(image, 0, 0, this);
+//		
+//	}
 }

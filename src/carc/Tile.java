@@ -224,11 +224,20 @@ public class Tile {
 	}
 
 	public String toString() {
+		
 		return " " + encoding.charAt(5) + " " + encoding.charAt(0) + " " + encoding.charAt(6) + "\n"
 				+ encoding.charAt(12) + "     " + encoding.charAt(7) + "\n" + encoding.charAt(3) + "  "
 				+ encoding.charAt(4) + "  " + encoding.charAt(1) + "\n" + encoding.charAt(11) + "     "
 				+ encoding.charAt(8) + "\n " + encoding.charAt(10) + " " + encoding.charAt(2) + " "
 				+ encoding.charAt(9);
+	}
+	
+	/** 
+	 * creates then returns initial tile
+	 * @return
+	 */
+	public static Tile getInitialTile(){
+		return new Tile("nrnrrccffffff");
 	}
 
 }
