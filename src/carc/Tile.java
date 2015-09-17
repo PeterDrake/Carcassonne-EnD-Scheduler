@@ -10,11 +10,11 @@ import static carc.Terrain.*;
  * while en is the right (east) side of the northeast corner.
  */
 public class Tile {
-	public String encoding;
-	
 	private Sector east;
 
 	private Sector en;
+
+	public String encoding;
 
 	private Sector es;
 
@@ -27,6 +27,8 @@ public class Tile {
 	private Sector nw;
 
 	private Sector se;
+
+	private boolean sheild;
 
 	private Sector south;
 
@@ -54,10 +56,11 @@ public class Tile {
 		north = new Sector(null);
 		south = new Sector(null);
 	}
-/**
- *Constructor for all tiles(except initial tile). 
- *
- */
+
+	/**
+	 * Constructor for all tiles(except initial tile).
+	 *
+	 */
 	public Tile(String tileEncoding) {
 		Terrain[] tileStuff = new Terrain[tileEncoding.length()];
 		encoding = tileEncoding;
@@ -89,138 +92,157 @@ public class Tile {
 		sw = new Sector(tileStuff[10]);
 		ws = new Sector(tileStuff[11]);
 		wn = new Sector(tileStuff[12]);
+		if (tileEncoding.charAt(13) == 's') {
+			sheild = true;
+		} else {
+			sheild = false;
+		}
 	}
 
-	/**
-	 *Getters for the terrain for each tile.
-	 * 
-	 */
+	/** Getters for the Sectors */
+	public Sector getEast() {
+		return east;
+	}
+
+	/** Getters for the terrain for each tile. */
 	public Terrain getEastTerrain() {
 		return east.getTerrain();
+	}
+
+	public Sector getEN() {
+		return en;
 	}
 
 	public Terrain getENTerrain() {
 		return en.getTerrain();
 	}
 
+	public Sector getES() {
+		return es;
+	}
+
 	public Terrain getESTerrain() {
 		return es.getTerrain();
 	}
 
+	public Sector getMiddle() {
+		return middle;
+	}
+
+	public Terrain getMiddleTerrain() {
+		return middle.getTerrain();
+	}
+
+	public Sector getNE() {
+		return ne;
+	}
 
 	public Terrain getNETerrain() {
 		return ne.getTerrain();
 	}
-	
-	public Terrain getMiddleTerrain() {
-		return middle.getTerrain();
+
+	public Sector getNorth() {
+		return north;
 	}
 
 	public Terrain getNorthTerrain() {
 		return north.getTerrain();
 	}
 
+	public Sector getNW() {
+		return nw;
+	}
+
 	public Terrain getNWTerrain() {
 		return nw.getTerrain();
+	}
+
+	public Sector getSE() {
+		return se;
 	}
 
 	public Terrain getSETerrain() {
 		return se.getTerrain();
 	}
 
+	public boolean getSheild() {
+		return sheild;
+	}
+
+	public Sector getSouth() {
+		return south;
+	}
+
 	public Terrain getSouthTerrain() {
 		return south.getTerrain();
+	}
+
+	public Sector getSW() {
+		return sw;
 	}
 
 	public Terrain getSWTerrain() {
 		return sw.getTerrain();
 	}
 
+	public Sector getWest() {
+		return west;
+	}
+
 	public Terrain getWestTerrain() {
 		return west.getTerrain();
+	}
+
+	public Sector getWN() {
+		return wn;
 	}
 
 	public Terrain getWNTerrain() {
 		return wn.getTerrain();
 	}
 
+	public Sector getWS() {
+		return ws;
+	}
+
 	public Terrain getWSTerrain() {
 		return ws.getTerrain();
 	}
 
-	/**Getters for the Sectors*/
-	public Sector getEast() {
-		return east;
-	}
-	public Sector getEN() {
-		return en;
-	}
-	public Sector getES() {
-		return es;
-	}
-	public Sector getMiddle() {
-		return middle;
-	}
-	public Sector getNE() {
-		return ne;
-	}
-	public Sector getNorth() {
-		return north;
-	}
-	public Sector getNW() {
-		return nw;
-	}
-	public Sector getSE() {
-		return se;
-	}
-	public Sector getSouth() {
-		return south;
-	}
-	public Sector getSW() {
-		return sw;
-	}
-	public Sector getWest() {
-		return west;
-	}
-	public Sector getWN() {
-		return wn;
-	}
-	public Sector getWS() {
-		return ws;
-	}
-	public Tile returnTile() {
-		return this;
-	}
-	/** Checks the tile in every Sector to see if it has a follower on it*/
-	public boolean hasFollower(){
-		if(east.getFollowerOwner() != null){
+	/** Checks the tile in every Sector to see if it has a follower on it */
+	public boolean hasFollower() {
+		if (east.getFollowerOwner() != null) {
 			return true;
-		}else if (en.getFollowerOwner() != null){
+		} else if (en.getFollowerOwner() != null) {
 			return true;
-		}else if (es.getFollowerOwner() != null){
+		} else if (es.getFollowerOwner() != null) {
 			return true;
-		}else if (middle.getFollowerOwner() != null){
+		} else if (middle.getFollowerOwner() != null) {
 			return true;
-		}else if (ne.getFollowerOwner() != null){
+		} else if (ne.getFollowerOwner() != null) {
 			return true;
-		}else if (north.getFollowerOwner() != null){
+		} else if (north.getFollowerOwner() != null) {
 			return true;
-		}else if (nw.getFollowerOwner() != null){
+		} else if (nw.getFollowerOwner() != null) {
 			return true;
-		}else if (se.getFollowerOwner() != null){
+		} else if (se.getFollowerOwner() != null) {
 			return true;
-		}else if (south.getFollowerOwner() != null){
+		} else if (south.getFollowerOwner() != null) {
 			return true;
-		}else if (sw.getFollowerOwner() != null){
+		} else if (sw.getFollowerOwner() != null) {
 			return true;
-		}else if (west.getFollowerOwner() != null){
+		} else if (west.getFollowerOwner() != null) {
 			return true;
-		}else if (wn.getFollowerOwner() != null){
+		} else if (wn.getFollowerOwner() != null) {
 			return true;
-		}else if (ws.getFollowerOwner() != null){
+		} else if (ws.getFollowerOwner() != null) {
 			return true;
 		}
 		return false;
+	}
+
+	public Tile returnTile() {
+		return this;
 	}
 
 	public String toString() {

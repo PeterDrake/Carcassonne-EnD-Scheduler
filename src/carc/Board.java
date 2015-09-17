@@ -1,6 +1,7 @@
 package carc;
 
 import java.io.File;
+import java.util.Scanner;
 
 public class Board {
 	
@@ -44,10 +45,11 @@ public class Board {
 	
 	
 	public int[] displayScore(){
+		System.out.println("Current Score:");
 		int[] scores = new int[players.length];
 		for(int i = 0; i < players.length; i++){
 			scores[i] = players[i].getScore();
-			System.out.println("Player " + i + " score: "+ scores[i]);
+			System.out.println(players[i].getName() + "'s " + "score:"+ scores[i]);
 		}
 		return scores;
 	}
@@ -68,13 +70,23 @@ public class Board {
 	public boolean isGameOver(){
 		return tileCount == 0;
 	}
-
+ /** Run method. Also lets people enter their names*/
 	public void run() {
 		Tile t = new Tile();
+		Scanner scan = new Scanner(System.in);
 		placeTile(t, 30, 30);
+		
+		for(int i = 1; i< players.length+1; i++){
+			System.out.println("Enter name for player " + i + ": ");
+			players[i-1].setName(scan.next());
+		}
 		displayScore();
 		System.out.println("Board Created");
 		System.out.println("Tile placed at 30, 30");
+		for(int i = 0; i< players.length; i++){
+			System.out.println(players[i].getName() + " has " + players[i].getFollowernum() + " followers");
+		}
+		System.out.println("Game over = " + isGameOver());
 		//readFileName();
 	}
 	
