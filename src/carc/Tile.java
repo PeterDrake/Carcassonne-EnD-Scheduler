@@ -11,8 +11,6 @@ import static carc.Terrain.*;
  */
 public class Tile {
 	
-	
-	
 	private Sector east;
 
 	private Sector en;
@@ -139,5 +137,7 @@ public class Tile {
 	public Tile returnTile() {
 		return this;
 	}
+	
+	
 
 }
