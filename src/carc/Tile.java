@@ -10,48 +10,49 @@ import static carc.Terrain.*;
  * while en is the right (east) side of the northeast corner.
  */
 public class Tile {
-
-	private Terrain east;
-
-	private Terrain en;
-
 	public String encoding;
+	
+	private Sector east;
 
-	private Terrain es;
+	private Sector en;
 
-	private Terrain middle;
+	private Sector es;
 
-	private Terrain ne;
+	private Sector middle;
 
-	private Terrain north;
+	private Sector ne;
 
-	private Terrain nw;
+	private Sector north;
 
-	private Terrain se;
+	private Sector nw;
 
-	private Terrain south;
+	private Sector se;
 
-	private Terrain sw;
+	private Sector south;
 
-	private Terrain west;
+	private Sector sw;
 
-	private Terrain wn;
+	private Sector west;
 
-	private Terrain ws;
+	private Sector wn;
+
+	private Sector ws;
 
 	/** This constructor creates the initial tile. */
 	public Tile() {
-		nw = CASTLE;
-		ne = CASTLE;
-		wn = FARM;
-		ws = FARM;
-		sw = FARM;
-		se = FARM;
-		es = FARM;
-		en = FARM;
-		west = ROAD;
-		east = ROAD;
-		middle = ROAD;
+		nw = new Sector(CASTLE);
+		ne = new Sector(CASTLE);
+		wn = new Sector(FARM);
+		ws = new Sector(FARM);
+		sw = new Sector(FARM);
+		se = new Sector(FARM);
+		es = new Sector(FARM);
+		en = new Sector(FARM);
+		west = new Sector(ROAD);
+		east = new Sector(ROAD);
+		middle = new Sector(ROAD);
+		north = new Sector(null);
+		south = new Sector(null);
 	}
 /**
  *Constructor for all tiles(except initial tile). 
@@ -75,79 +76,151 @@ public class Tile {
 				tileStuff[x] = null;
 			}
 		}
-		north = tileStuff[0];
-		east = tileStuff[1];
-		south = tileStuff[2];
-		west = tileStuff[3];
-		middle = tileStuff[4];
-		nw = tileStuff[5];
-		ne = tileStuff[6];
-		en = tileStuff[7];
-		es = tileStuff[8];
-		se = tileStuff[9];
-		sw = tileStuff[10];
-		ws = tileStuff[11];
-		wn = tileStuff[12];
+		north = new Sector(tileStuff[0]);
+		east = new Sector(tileStuff[1]);
+		south = new Sector(tileStuff[2]);
+		west = new Sector(tileStuff[3]);
+		middle = new Sector(tileStuff[4]);
+		nw = new Sector(tileStuff[5]);
+		ne = new Sector(tileStuff[6]);
+		en = new Sector(tileStuff[7]);
+		es = new Sector(tileStuff[8]);
+		se = new Sector(tileStuff[9]);
+		sw = new Sector(tileStuff[10]);
+		ws = new Sector(tileStuff[11]);
+		wn = new Sector(tileStuff[12]);
 	}
 
 	/**
 	 *Getters for the terrain for each tile.
 	 * 
 	 */
-	public Terrain getEast() {
+	public Terrain getEastTerrain() {
+		return east.getTerrain();
+	}
+
+	public Terrain getENTerrain() {
+		return en.getTerrain();
+	}
+
+	public Terrain getESTerrain() {
+		return es.getTerrain();
+	}
+
+
+	public Terrain getNETerrain() {
+		return ne.getTerrain();
+	}
+	
+	public Terrain getMiddleTerrain() {
+		return middle.getTerrain();
+	}
+
+	public Terrain getNorthTerrain() {
+		return north.getTerrain();
+	}
+
+	public Terrain getNWTerrain() {
+		return nw.getTerrain();
+	}
+
+	public Terrain getSETerrain() {
+		return se.getTerrain();
+	}
+
+	public Terrain getSouthTerrain() {
+		return south.getTerrain();
+	}
+
+	public Terrain getSWTerrain() {
+		return sw.getTerrain();
+	}
+
+	public Terrain getWestTerrain() {
+		return west.getTerrain();
+	}
+
+	public Terrain getWNTerrain() {
+		return wn.getTerrain();
+	}
+
+	public Terrain getWSTerrain() {
+		return ws.getTerrain();
+	}
+
+	/**Getters for the Sectors*/
+	public Sector getEast() {
 		return east;
 	}
-
-	public Terrain getEN() {
+	public Sector getEN() {
 		return en;
 	}
-
-	public Terrain getES() {
+	public Sector getES() {
 		return es;
 	}
-
-	public Terrain getMiddle() {
+	public Sector getMiddle() {
 		return middle;
 	}
-
-	public Terrain getNE() {
+	public Sector getNE() {
 		return ne;
 	}
-
-	public Terrain getNorth() {
+	public Sector getNorth() {
 		return north;
 	}
-
-	public Terrain getNW() {
+	public Sector getNW() {
 		return nw;
 	}
-
-	public Terrain getSE() {
+	public Sector getSE() {
 		return se;
 	}
-
-	public Terrain getSouth() {
+	public Sector getSouth() {
 		return south;
 	}
-
-	public Terrain getSW() {
+	public Sector getSW() {
 		return sw;
 	}
-
-	public Terrain getWest() {
+	public Sector getWest() {
 		return west;
 	}
-
-	public Terrain getWN() {
+	public Sector getWN() {
 		return wn;
 	}
-
-	public Terrain getWS() {
+	public Sector getWS() {
 		return ws;
 	}
-
 	public Tile returnTile() {
 		return this;
+	}
+	/** Checks the tile in every Sector to see if it has a follower on it*/
+	public boolean hasFollower(){
+		if(east.getFollowerOwner() != null){
+			return true;
+		}else if (en.getFollowerOwner() != null){
+			return true;
+		}else if (es.getFollowerOwner() != null){
+			return true;
+		}else if (middle.getFollowerOwner() != null){
+			return true;
+		}else if (ne.getFollowerOwner() != null){
+			return true;
+		}else if (north.getFollowerOwner() != null){
+			return true;
+		}else if (nw.getFollowerOwner() != null){
+			return true;
+		}else if (se.getFollowerOwner() != null){
+			return true;
+		}else if (south.getFollowerOwner() != null){
+			return true;
+		}else if (sw.getFollowerOwner() != null){
+			return true;
+		}else if (west.getFollowerOwner() != null){
+			return true;
+		}else if (wn.getFollowerOwner() != null){
+			return true;
+		}else if (ws.getFollowerOwner() != null){
+			return true;
+		}
+		return false;
 	}
 
 	public String toString() {
