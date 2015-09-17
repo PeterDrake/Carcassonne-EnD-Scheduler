@@ -40,6 +40,7 @@ public class Board {
 	}
 	
 	public int[] displayScore(){
+		System.out.println("Current Score:");
 		int[] scores = new int[players.length];
 		for(int i = 0; i < players.length; i++){
 			scores[i] = players[i].getScore();
@@ -80,6 +81,7 @@ public class Board {
 		for(int i = 0; i< players.length; i++){
 			System.out.println(players[i].getName() + " has " + players[i].getFollowernum() + " followers");
 		}
+		System.out.println("Game over = " + isGameOver());
 		//readFileName();
 	}
 	
