@@ -259,7 +259,7 @@ public class Tile {
 	 * @return
 	 */
 	public static Tile getInitialTile(){
-		return new Tile("nrnrrccffffff");
+		return new Tile("nrnrrccffffffn");
 	}
 
 }
