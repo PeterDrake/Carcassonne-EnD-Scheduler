@@ -10,46 +10,49 @@ import static carc.Terrain.*;
  * while en is the right (east) side of the northeast corner.
  */
 public class Tile {
+	public String encoding;
+	
+	private Sector east;
 
-	private Terrain east;
+	private Sector en;
 
-	private Terrain en;
+	private Sector es;
 
-	private Terrain es;
+	private Sector middle;
 
-	private Terrain middle;
+	private Sector ne;
 
-	private Terrain ne;
+	private Sector north;
 
-	private Terrain north;
+	private Sector nw;
 
-	private Terrain nw;
+	private Sector se;
 
-	private Terrain se;
+	private Sector south;
 
-	private Terrain south;
+	private Sector sw;
 
-	private Terrain sw;
+	private Sector west;
 
-	private Terrain west;
+	private Sector wn;
 
-	private Terrain wn;
-
-	private Terrain ws;
+	private Sector ws;
 
 	/** This constructor creates the initial tile. */
 	public Tile() {
-		nw = CASTLE;
-		ne = CASTLE;
-		wn = FARM;
-		ws = FARM;
-		sw = FARM;
-		se = FARM;
-		es = FARM;
-		en = FARM;
-		west = ROAD;
-		east = ROAD;
-		middle = ROAD;
+		nw = new Sector(CASTLE);
+		ne = new Sector(CASTLE);
+		wn = new Sector(FARM);
+		ws = new Sector(FARM);
+		sw = new Sector(FARM);
+		se = new Sector(FARM);
+		es = new Sector(FARM);
+		en = new Sector(FARM);
+		west = new Sector(ROAD);
+		east = new Sector(ROAD);
+		middle = new Sector(ROAD);
+		north = new Sector(null);
+		south = new Sector(null);
 	}
 /**
  *Constructor for all tiles(except initial tile). 
@@ -57,6 +60,7 @@ public class Tile {
  */
 	public Tile(String tileEncoding) {
 		Terrain[] tileStuff = new Terrain[tileEncoding.length()];
+		encoding = tileEncoding;
 		for (int x = 0; x < tileEncoding.length(); x++) {
 			if (tileEncoding.charAt(x) == 'r') {
 				tileStuff[x] = ROAD;
@@ -66,81 +70,165 @@ public class Tile {
 				tileStuff[x] = CASTLE;
 			} else if (tileEncoding.charAt(x) == 'f') {
 				tileStuff[x] = FARM;
-			} else if (tileEncoding.charAt(x) == 'e'){
+			} else if (tileEncoding.charAt(x) == 'e') {
 				tileStuff[x] = ROAD_END;
 			} else {
 				tileStuff[x] = null;
 			}
 		}
-		north = tileStuff[0];
-		east = tileStuff[1];
-		south = tileStuff[2];
-		west = tileStuff[3];
-		middle = tileStuff[4];
-		nw = tileStuff[5];
-		ne = tileStuff[6];
-		en = tileStuff[7];
-		es = tileStuff[8];
-		se = tileStuff[9];
-		sw = tileStuff[10];
-		ws = tileStuff[11];
-		wn = tileStuff[12];
+		north = new Sector(tileStuff[0]);
+		east = new Sector(tileStuff[1]);
+		south = new Sector(tileStuff[2]);
+		west = new Sector(tileStuff[3]);
+		middle = new Sector(tileStuff[4]);
+		nw = new Sector(tileStuff[5]);
+		ne = new Sector(tileStuff[6]);
+		en = new Sector(tileStuff[7]);
+		es = new Sector(tileStuff[8]);
+		se = new Sector(tileStuff[9]);
+		sw = new Sector(tileStuff[10]);
+		ws = new Sector(tileStuff[11]);
+		wn = new Sector(tileStuff[12]);
 	}
 
 	/**
 	 *Getters for the terrain for each tile.
 	 * 
 	 */
-	public Terrain getEast() {
+	public Terrain getEastTerrain() {
+		return east.getTerrain();
+	}
+
+	public Terrain getENTerrain() {
+		return en.getTerrain();
+	}
+
+	public Terrain getESTerrain() {
+		return es.getTerrain();
+	}
+
+
+	public Terrain getNETerrain() {
+		return ne.getTerrain();
+	}
+	
+	public Terrain getMiddleTerrain() {
+		return middle.getTerrain();
+	}
+
+	public Terrain getNorthTerrain() {
+		return north.getTerrain();
+	}
+
+	public Terrain getNWTerrain() {
+		return nw.getTerrain();
+	}
+
+	public Terrain getSETerrain() {
+		return se.getTerrain();
+	}
+
+	public Terrain getSouthTerrain() {
+		return south.getTerrain();
+	}
+
+	public Terrain getSWTerrain() {
+		return sw.getTerrain();
+	}
+
+	public Terrain getWestTerrain() {
+		return west.getTerrain();
+	}
+
+	public Terrain getWNTerrain() {
+		return wn.getTerrain();
+	}
+
+	public Terrain getWSTerrain() {
+		return ws.getTerrain();
+	}
+
+	/**Getters for the Sectors*/
+	public Sector getEast() {
 		return east;
 	}
-
-	public Terrain getEN() {
+	public Sector getEN() {
 		return en;
 	}
-
-	public Terrain getES() {
+	public Sector getES() {
 		return es;
 	}
-
-	public Terrain getNE() {
+	public Sector getMiddle() {
+		return middle;
+	}
+	public Sector getNE() {
 		return ne;
 	}
-
-	public Terrain getNorth() {
+	public Sector getNorth() {
 		return north;
 	}
-
-	public Terrain getNW() {
+	public Sector getNW() {
 		return nw;
 	}
-
-	public Terrain getSE() {
+	public Sector getSE() {
 		return se;
 	}
-
-	public Terrain getSouth() {
+	public Sector getSouth() {
 		return south;
 	}
-
-	public Terrain getSW() {
+	public Sector getSW() {
 		return sw;
 	}
-
-	public Terrain getWest() {
+	public Sector getWest() {
 		return west;
 	}
-
-	public Terrain getWN() {
+	public Sector getWN() {
 		return wn;
 	}
-
-	public Terrain getWS() {
+	public Sector getWS() {
 		return ws;
 	}
-
 	public Tile returnTile() {
 		return this;
+	}
+	/** Checks the tile in every Sector to see if it has a follower on it*/
+	public boolean hasFollower(){
+		if(east.getFollowerOwner() != null){
+			return true;
+		}else if (en.getFollowerOwner() != null){
+			return true;
+		}else if (es.getFollowerOwner() != null){
+			return true;
+		}else if (middle.getFollowerOwner() != null){
+			return true;
+		}else if (ne.getFollowerOwner() != null){
+			return true;
+		}else if (north.getFollowerOwner() != null){
+			return true;
+		}else if (nw.getFollowerOwner() != null){
+			return true;
+		}else if (se.getFollowerOwner() != null){
+			return true;
+		}else if (south.getFollowerOwner() != null){
+			return true;
+		}else if (sw.getFollowerOwner() != null){
+			return true;
+		}else if (west.getFollowerOwner() != null){
+			return true;
+		}else if (wn.getFollowerOwner() != null){
+			return true;
+		}else if (ws.getFollowerOwner() != null){
+			return true;
+		}
+		return false;
+	}
+
+	public String toString() {
+		return " " + encoding.charAt(5) + " " + encoding.charAt(0) + " " + encoding.charAt(6) + "\n"
+				+ encoding.charAt(12) + "     " + encoding.charAt(7) + "\n" + encoding.charAt(3) + "  "
+				+ encoding.charAt(4) + "  " + encoding.charAt(1) + "\n" + encoding.charAt(11) + "     "
+				+ encoding.charAt(8) + "\n " + encoding.charAt(10) + " " + encoding.charAt(2) + " "
+				+ encoding.charAt(9);
 	}
 
 }
