@@ -77,6 +77,9 @@ public class Board {
 		displayScore();
 		System.out.println("Board Created");
 		System.out.println("Tile placed at 30, 30");
+		for(int i = 0; i< players.length; i++){
+			System.out.println(players[i].getName() + " has " + players[i].getFollowernum() + " followers");
+		}
 		//readFileName();
 	}
 	
