@@ -40,6 +40,12 @@ public class TileTest {
 		assertEquals(FARM, t.getESTerrain());
 		assertEquals(FARM, t.getENTerrain());
 	}
+	
+	@Test
+	public void testToString(){
+		Tile t = new Tile("nrnrrccffffff");
+		assertEquals(" c n c\nf     f\nr  r  r\nf     f\n f n f", t.toString());
+	}
 
 	@Test
 	public void testHasFollower(){

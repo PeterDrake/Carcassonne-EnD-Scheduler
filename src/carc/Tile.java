@@ -10,6 +10,7 @@ import static carc.Terrain.*;
  * while en is the right (east) side of the northeast corner.
  */
 public class Tile {
+	public String encoding;
 	
 	private Sector east;
 
@@ -59,6 +60,7 @@ public class Tile {
  */
 	public Tile(String tileEncoding) {
 		Terrain[] tileStuff = new Terrain[tileEncoding.length()];
+		encoding = tileEncoding;
 		for (int x = 0; x < tileEncoding.length(); x++) {
 			if (tileEncoding.charAt(x) == 'r') {
 				tileStuff[x] = ROAD;
@@ -68,7 +70,7 @@ public class Tile {
 				tileStuff[x] = CASTLE;
 			} else if (tileEncoding.charAt(x) == 'f') {
 				tileStuff[x] = FARM;
-			} else if (tileEncoding.charAt(x) == 'e'){
+			} else if (tileEncoding.charAt(x) == 'e') {
 				tileStuff[x] = ROAD_END;
 			} else {
 				tileStuff[x] = null;
@@ -105,8 +107,13 @@ public class Tile {
 		return es.getTerrain();
 	}
 
+
 	public Terrain getNETerrain() {
 		return ne.getTerrain();
+	}
+	
+	public Terrain getMiddleTerrain() {
+		return middle.getTerrain();
 	}
 
 	public Terrain getNorthTerrain() {
@@ -214,6 +221,14 @@ public class Tile {
 			return true;
 		}
 		return false;
+	}
+
+	public String toString() {
+		return " " + encoding.charAt(5) + " " + encoding.charAt(0) + " " + encoding.charAt(6) + "\n"
+				+ encoding.charAt(12) + "     " + encoding.charAt(7) + "\n" + encoding.charAt(3) + "  "
+				+ encoding.charAt(4) + "  " + encoding.charAt(1) + "\n" + encoding.charAt(11) + "     "
+				+ encoding.charAt(8) + "\n " + encoding.charAt(10) + " " + encoding.charAt(2) + " "
+				+ encoding.charAt(9);
 	}
 
 }
