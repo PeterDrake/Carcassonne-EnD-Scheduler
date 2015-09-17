@@ -15,6 +15,8 @@ public class Tile {
 
 	private Terrain en;
 
+	public String encoding;
+
 	private Terrain es;
 
 	private Terrain middle;
@@ -54,6 +56,7 @@ public class Tile {
 
 	public Tile(String tileEncoding) {
 		Terrain[] tileStuff = new Terrain[tileEncoding.length()];
+		encoding = tileEncoding;
 		for (int x = 0; x < tileEncoding.length(); x++) {
 			if (tileEncoding.charAt(x) == 'r') {
 				tileStuff[x] = ROAD;
@@ -63,7 +66,7 @@ public class Tile {
 				tileStuff[x] = CASTLE;
 			} else if (tileEncoding.charAt(x) == 'f') {
 				tileStuff[x] = FARM;
-			} else if (tileEncoding.charAt(x) == 'e'){
+			} else if (tileEncoding.charAt(x) == 'e') {
 				tileStuff[x] = ROAD_END;
 			} else {
 				tileStuff[x] = null;
@@ -94,6 +97,10 @@ public class Tile {
 
 	public Terrain getES() {
 		return es;
+	}
+
+	public Terrain getMiddle() {
+		return middle;
 	}
 
 	public Terrain getNE() {
@@ -134,6 +141,14 @@ public class Tile {
 
 	public Tile returnTile() {
 		return this;
+	}
+
+	public String toString() {
+		return " " + encoding.charAt(5) + " " + encoding.charAt(0) + " " + encoding.charAt(6) + "\n"
+				+ encoding.charAt(12) + "     " + encoding.charAt(7) + "\n" + encoding.charAt(3) + "  "
+				+ encoding.charAt(4) + "  " + encoding.charAt(1) + "\n" + encoding.charAt(11) + "     "
+				+ encoding.charAt(8) + "\n " + encoding.charAt(10) + " " + encoding.charAt(2) + " "
+				+ encoding.charAt(9);
 	}
 
 }

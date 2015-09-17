@@ -40,5 +40,11 @@ public class TileTest {
 		assertEquals(FARM, t.getES());
 		assertEquals(FARM, t.getEN());
 	}
+	
+	@Test
+	public void testToString(){
+		Tile t = new Tile("nrnrrccffffff");
+		assertEquals(" c n c\nf     f\nr  r  r\nf     f\n f n f", t.toString());
+	}
 
 }
