@@ -1,5 +1,6 @@
 package carc;
 
+import java.io.File;
 
 public class Board {
 	
@@ -12,9 +13,16 @@ public class Board {
 	/**Number of remaining tiles*/
 	private int tileCount = 72;
 	
+	private Tile[] tilesFaceDown;
+	
 	/**This is the constructor for the board given the number of players.*/
 	public Board(int numberplayers){
 		tiles = new Tile[BOARD_WIDTH][BOARD_WIDTH];
+		tilesFaceDown = new Tile[tileCount];
+		String[] names = readFileName(); 
+		for(int i = 0; i < tileCount; i++){
+			tilesFaceDown[i] = new Tile(names[i]);
+		}
 		players = new Player[numberplayers];
 		for(int i = 0; i < numberplayers ; i++){
 			players[i] = new Player();
@@ -62,6 +70,17 @@ public class Board {
 		displayScore();
 		System.out.println("Board Created");
 		System.out.println("Tile placed at 30, 30");
+		//readFileName();
+	}
+	
+	public String[] readFileName(){
+		File folder = new File("Tiles");
+		File[] listOfFiles = folder.listFiles();
+		String[] names = new String[tileCount];
+		for(int i = 0; i<listOfFiles.length;i++ ){
+			names[i] = listOfFiles[i].getName();
+		}
+		return names;
 	}
 
 }

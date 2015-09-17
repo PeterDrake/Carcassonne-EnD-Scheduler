@@ -4,8 +4,7 @@ import java.io.IOException;
 
 public class Carcassonne {
 
-	public static void main(String [] args){
-		
+	public static void main(String [] args){		
 		int numberofplayers = 2;
 		System.out.print("Please Enter Number of Players: ");
 		try {
@@ -15,7 +14,8 @@ public class Carcassonne {
 			e.printStackTrace();
 		}
 		Board b = new Board(numberofplayers);
-		b.run();
+		GUI display = new GUI(b);
+
 		
 		
 	}
