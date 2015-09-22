@@ -37,10 +37,11 @@ public class Carcassonne {
 			System.out.println("There are " + b.getTileCount() + " tiles left");
 			System.out.println("Do you want to place a follower on this tile? y/n");
 			if(s.next().equals("y")){
-				
-				boolean bool = b.placeFollower(b.getPlayers()[0], x, y);
+				System.out.println("Which sector do you want to place them in? ne/nw/en/es/se/sw/ws/wn/middle/north/south/east/west");
+				String sec = s.next();
+				boolean bool = b.placeFollower(b.getPlayers()[0],sec,x, y);
 				if(bool == true){
-					System.out.println("The tile at coordinates " + x + "," + y + " has a follower owned by " + b.getPlayers()[0].getName() + " who has " + b.getPlayers()[0].getFollowernum() + " followers left");
+					System.out.println("The tile at coordinates " + x + "," + y + " has a follower at " + b.getTileAt(x, y).hasFollower() + "owned by " + b.getPlayers()[0].getName() + " who has " + b.getPlayers()[0].getFollowernum() + " followers left");
 				}else{
 					System.out.println("Cannot set follower at Coordinates " + x + ", " +y);
 				}

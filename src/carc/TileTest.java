@@ -8,7 +8,7 @@ public class TileTest {
 
 	@Test
 	public void testFirstTile() {
-		Tile t = new Tile();
+		Tile t = Tile.getInitialTile();
 		assertEquals(null, t.getNorthTerrain());
 		assertEquals(ROAD, t.getEastTerrain());
 		assertEquals(null, t.getSouthTerrain());
@@ -26,7 +26,7 @@ public class TileTest {
 	
 	@Test
 	public void testTile() {
-		Tile t = new Tile("nrnrrccffffff");
+		Tile t = new Tile("nrnrrccffffffn");
 		assertEquals(null, t.getNorthTerrain());
 		assertEquals(ROAD, t.getEastTerrain());
 		assertEquals(null, t.getSouthTerrain());
@@ -43,17 +43,17 @@ public class TileTest {
 	
 	@Test
 	public void testToString(){
-		Tile t = new Tile("nrnrrccffffff");
+		Tile t = new Tile("nrnrrccffffffn");
 		assertEquals(" c n c\nf     f\nr  r  r\nf     f\n f n f", t.toString());
 	}
 
 	@Test
 	public void testHasFollower(){
-		Tile t = new Tile("nrnrrccffffff");
-		Tile t2 = new Tile("nrnrrccffffff");
+		Tile t = Tile.getInitialTile();
+		Tile t2 = Tile.getInitialTile();
 		Player p = new Player();
 		t.getSW().setFollower(p);
-		assertFalse( t2.hasFollower());
-		assertTrue(t.hasFollower());
+		assertEquals(null, t2.hasFollower());
+		assertEquals("sw", t.hasFollower());
 	}
 }

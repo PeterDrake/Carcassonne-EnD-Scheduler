@@ -76,7 +76,7 @@ public class Board {
 	}
  /** Run method. Also lets people enter their names*/
 	public void run() {
-		Tile t = new Tile();
+		Tile t = Tile.getInitialTile();
 		int x,y;
 		Scanner scan = new Scanner(System.in);
 		placeTile(t, 30, 30);
@@ -103,15 +103,39 @@ public class Board {
 	}
 
 
-	public boolean placeFollower(Player p, int x, int y){
-		if(getTileAt(x,y) == null){
+	public boolean placeFollower(Player p, String s, int x, int y){
+		if(getTileAt(x,y) == null || p.getFollowernum() == 0 || s == null){
 			return false;
 		}
-		else if(p.getFollowernum() == 0){
-			return false;
+		switch(s){
+		case "ne" :  getTileAt(x,y).getNE().setFollower(p);
+		break;
+		case "nw" : getTileAt(x,y).getNW().setFollower(p);
+		break;
+		case "se" :  getTileAt(x,y).getSE().setFollower(p);
+		break;
+		case "sw" : getTileAt(x,y).getSW().setFollower(p);
+		break;
+		case "en" :  getTileAt(x,y).getES().setFollower(p);
+		break;
+		case "es" : getTileAt(x,y).getES().setFollower(p);
+		break;
+		case "ws" :  getTileAt(x,y).getWS().setFollower(p);
+		break;
+		case "wn" : getTileAt(x,y).getWN().setFollower(p);
+		break;
+		case "middle" :  getTileAt(x,y).getMiddle().setFollower(p);
+		break;
+		case "north" : getTileAt(x,y).getNorth().setFollower(p);
+		break;
+		case "east" : getTileAt(x,y).getEast().setFollower(p);
+		break;
+		case "south" : getTileAt(x,y).getSouth().setFollower(p);
+		break;
+		case "west" : getTileAt(x,y).getWest().setFollower(p);
+		break;
 		}
 		
-		getTileAt(x,y).getNE().setFollower(p);
 		
 		p.setFollowernum(p.getFollowernum() - 1);
 		return true;

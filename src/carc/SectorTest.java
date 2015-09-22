@@ -10,7 +10,7 @@ public class SectorTest {
 	@Test
 	
 	public void test() {
-		Sector s = new Sector(FARM);
+		Sector s = new Sector("sw", FARM);
 		Player p = new Player();
 		p.setName("Joe");
 		s.setFollower(p);
