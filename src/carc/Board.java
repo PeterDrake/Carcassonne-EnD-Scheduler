@@ -36,6 +36,8 @@ public class Board {
 	/**Playes a tile at a given x and y in the array.*/
 	public void placeTile(Tile tile, int x, int y){
 		tiles[x][y] = tile;
+		tileCount--;
+		
 	}
 	
 	public Tile getTileAt(int x, int y){
@@ -90,25 +92,7 @@ public class Board {
 			System.out.println(players[i].getName() + " has " + players[i].getFollowernum() + " followers");
 		}
 		System.out.println("Game over = " + isGameOver());
-		while(true){
-		System.out.println("Do you want to place a follower? y/n");
-		if(scan.next().equals("y")){
-			System.out.println("Enter x coordinate: ");
-			x = scan.nextInt();
-			System.out.println("Enter y coordinate: ");
-			y = scan.nextInt();
-			
-			boolean b = placeFollower(players[0], x, y);
-			if(b == true){
-				System.out.println("The tile at coordinates " + x + "," + y + " has a follower owned by " + players[0].getName() + " who has " + players[0].getFollowernum() + " followers left");
-			}else{
-				System.out.println("Cannot set follower at Coordinates " + x + ", " +y);
-			}
-			
-		}else{
-			break;
-		}
-		}
+		
 		//readFileName();
 	}
 	
