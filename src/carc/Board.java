@@ -90,6 +90,11 @@ public class Board {
 		//readFileName();
 	}
 	
+	
+	public Tile[] getTilesFaceDown() {
+		return tilesFaceDown;
+	}
+
 	public String[] readFileName(){
 		File folder = new File("Tiles");
 		File[] listOfFiles = folder.listFiles();
@@ -100,4 +105,11 @@ public class Board {
 		return names;
 	}
 
+	public int getRandomTileIndex(){
+		return (int)(Math.random()*tileCount);
+	}
+	
+	public Tile getRandomTile(){
+		return tilesFaceDown[getRandomTileIndex()];
+	}
 }
