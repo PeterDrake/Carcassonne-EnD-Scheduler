@@ -134,14 +134,15 @@ public class Board {
 	}
 
 	
-	public String[] readFileName(){
+	public char[][] readFileName(){
 		File folder = new File("Tiles");
 		File[] listOfFiles = folder.listFiles();
-		String[] names = new String[tileCount];
-		for(int i = 0; i<listOfFiles.length;i++ ){
-			names[i] = listOfFiles[i].getName();
+		char[] names = new char[100];
+		for(int i = 0; i < listOfFiles.length;i++ ){
+			//	names[i] = listOfFiles[i].getName().toCharArray();
+			
 		}
-		return names;
+		return null;
 		
 		
 	}

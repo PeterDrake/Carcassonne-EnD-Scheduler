@@ -18,9 +18,8 @@ public class Carcassonne {
 		b.run();
 		GUI display = new GUI(b);
 		Tile initial = Tile.getInitialTile();
-		b.placeTile(initial, 29, 29);
+		b.placeTile(initial, 6, 6);
 		display.updateBoard();
-
 
 		while(true){
 			Tile t = b.getRandomTile();
@@ -29,10 +28,11 @@ public class Carcassonne {
 			int x = s.nextInt();
 			System.out.println("Enter y coordinate: ");
 			int y = s.nextInt();
-			b.placeTile(t, x, y);	
+			b.placeTile(t, x, y);
 			display.pack();
 			display.validate();
 			display.repaint();
+			display.updateBoard();
 		}
 		
 
