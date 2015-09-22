@@ -75,6 +75,7 @@ public class Board {
  /** Run method. Also lets people enter their names*/
 	public void run() {
 		Tile t = new Tile();
+		int x,y;
 		Scanner scan = new Scanner(System.in);
 		placeTile(t, 30, 30);
 		
@@ -89,12 +90,36 @@ public class Board {
 			System.out.println(players[i].getName() + " has " + players[i].getFollowernum() + " followers");
 		}
 		System.out.println("Game over = " + isGameOver());
+		System.out.println("Do you want to place a follower? y/n");
+		if(scan.next().equals("y")){
+			System.out.println("Enter x coordinate: ");
+			x = scan.nextInt();
+			System.out.println("Enter y coordinate: ");
+			y = scan.nextInt();
+			
+			boolean b = placeFollower(players[0], x, y);
+			if(b == true){
+				System.out.println("The tile at coordinates " + x + "," + y + " has a follower owned by " + players[0].getName());
+			}else{
+				System.out.println("No Tile at Coordinates " + x + ", " +y);
+			}
+		}
 		//readFileName();
 	}
 	
+
 	
 	public ArrayList<Tile> getTilesFaceDown() {
 		return tilesFaceDown;
+	}
+
+
+	public boolean placeFollower(Player p, int x, int y){
+		if(getTileAt(x,y) == null){
+			return false;
+		}
+		getTileAt(x,y).getNE().setFollower(p);
+		return true;
 	}
 
 	
@@ -106,6 +131,8 @@ public class Board {
 			names[i] = listOfFiles[i].getName();
 		}
 		return names;
+		
+		
 	}
 
 	/**Gets a random Tile index for our getRandomTile() method*/

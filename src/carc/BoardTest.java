@@ -41,6 +41,14 @@ public class BoardTest {
 		b.setTileCount(0);
 		assertTrue(b.isGameOver());
 	}
+	
+	@Test
+	public void placeFollwerTest(){
+		b.placeTile(new Tile(), 1, 1);
+		
+		assertTrue(b.placeFollower(b.getPlayers()[0], 1, 1));
+		assertFalse(b.placeFollower(b.getPlayers()[0], 1, 2));
+	}
 
 	@Test
 	public void getRandomTileIndexTest(){
