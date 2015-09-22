@@ -105,10 +105,12 @@ public class Board {
 		return names;
 	}
 
+	/**Gets a random Tile index for our getRandomTile() method*/
 	public int getRandomTileIndex(){
 		return (int)(Math.random()*tileCount);
 	}
 	
+	/**Gets a random Tile that is faced down*/
 	public Tile getRandomTile(){
 		return tilesFaceDown[getRandomTileIndex()];
 	}

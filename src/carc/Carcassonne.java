@@ -20,6 +20,16 @@ public class Carcassonne {
 		Tile initial = Tile.getInitialTile();
 		b.placeTile(initial, 29, 29);
 		display.updateBoard();
+		while(true){
+			Tile t = b.getRandomTile();
+			System.out.println("Where would you like to place this tile? \n" + t);
+			System.out.println("Enter x coordinate: ");
+			int x = s.nextInt();
+			System.out.println("Enter y coordinate: ");
+			int y = s.nextInt();
+			b.placeTile(t, x, y);
+			display.updateBoard();
+		}
 		
 	}
 	
