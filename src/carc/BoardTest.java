@@ -51,5 +51,21 @@ public class BoardTest {
 		assertEquals(6, b.getPlayers()[0].getFollowernum());
 	}
 
+	@Test
+	public void getRandomTileIndexTest(){
+		int frequency[] = new int[72];
+		for(int i = 0; i<frequency.length; i++){
+			frequency[i]=0;
+		}
+		double trials = 1000000;
+		for(int i = 0; i<trials; i++){
+			frequency[b.getRandomTileIndex()]++;
+		}
+		for(int i = 0; i< frequency.length; i++){
+			assertEquals(1.0/72.0,frequency[i]/trials,0.01);
+		}
+		
+	}
+	
 }
 
