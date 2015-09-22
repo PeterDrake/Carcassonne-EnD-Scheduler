@@ -2,6 +2,7 @@ package carc;
 
 import java.io.File;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Board {
 	
@@ -14,15 +15,16 @@ public class Board {
 	/**Number of remaining tiles*/
 	private int tileCount = 72;
 	
-	private Tile[] tilesFaceDown;
+	private ArrayList<Tile> tilesFaceDown;
 	
 	/**This is the constructor for the board given the number of players.*/
 	public Board(int numberplayers){
 		tiles = new Tile[BOARD_WIDTH][BOARD_WIDTH];
-		tilesFaceDown = new Tile[tileCount];
+		tilesFaceDown = new ArrayList();
 		String[] names = readFileName(); 
 		for(int i = 0; i < tileCount; i++){
-			tilesFaceDown[i] = new Tile(names[i]);
+			tilesFaceDown.add(new Tile(names[i]));
+			
 		}
 		players = new Player[numberplayers];
 		for(int i = 0; i < numberplayers ; i++){
@@ -91,10 +93,11 @@ public class Board {
 	}
 	
 	
-	public Tile[] getTilesFaceDown() {
+	public ArrayList<Tile> getTilesFaceDown() {
 		return tilesFaceDown;
 	}
 
+	
 	public String[] readFileName(){
 		File folder = new File("Tiles");
 		File[] listOfFiles = folder.listFiles();
@@ -107,11 +110,13 @@ public class Board {
 
 	/**Gets a random Tile index for our getRandomTile() method*/
 	public int getRandomTileIndex(){
-		return (int)(Math.random()*tileCount);
+		return (int)(Math.random()*tilesFaceDown.size());
 	}
 	
 	/**Gets a random Tile that is faced down*/
 	public Tile getRandomTile(){
-		return tilesFaceDown[getRandomTileIndex()];
+		Tile t = tilesFaceDown.get(getRandomTileIndex());
+		tilesFaceDown.remove(t);
+		return t;
 	}
 }
