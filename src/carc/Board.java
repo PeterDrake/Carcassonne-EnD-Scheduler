@@ -88,6 +88,7 @@ public class Board {
 			System.out.println(players[i].getName() + " has " + players[i].getFollowernum() + " followers");
 		}
 		System.out.println("Game over = " + isGameOver());
+		while(true){
 		System.out.println("Do you want to place a follower? y/n");
 		if(scan.next().equals("y")){
 			System.out.println("Enter x coordinate: ");
@@ -97,10 +98,14 @@ public class Board {
 			
 			boolean b = placeFollower(players[0], x, y);
 			if(b == true){
-				System.out.println("The tile at coordinates " + x + "," + y + " has a follower owned by " + players[0].getName());
+				System.out.println("The tile at coordinates " + x + "," + y + " has a follower owned by " + players[0].getName() + " who has " + players[0].getFollowernum() + " followers left");
 			}else{
-				System.out.println("No Tile at Coordinates " + x + ", " +y);
+				System.out.println("Cannot set follower at Coordinates " + x + ", " +y);
 			}
+			
+		}else{
+			break;
+		}
 		}
 		//readFileName();
 	}
@@ -109,7 +114,13 @@ public class Board {
 		if(getTileAt(x,y) == null){
 			return false;
 		}
+		else if(p.getFollowernum() == 0){
+			return false;
+		}
+		
 		getTileAt(x,y).getNE().setFollower(p);
+		
+		p.setFollowernum(p.getFollowernum() - 1);
 		return true;
 	}
 	

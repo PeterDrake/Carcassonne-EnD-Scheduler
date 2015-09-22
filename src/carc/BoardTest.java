@@ -48,6 +48,7 @@ public class BoardTest {
 		
 		assertTrue(b.placeFollower(b.getPlayers()[0], 1, 1));
 		assertFalse(b.placeFollower(b.getPlayers()[0], 1, 2));
+		assertEquals(6, b.getPlayers()[0].getFollowernum());
 	}
 
 }
