@@ -11,8 +11,6 @@ public class GUI extends JFrame{
 	private static final int DEFAULT_WIDTH=1200;
 	private GridBagConstraints constraints;
 //	private JButton button = new JButton("string");
-	private JFrame frame;
-	private Image image;
 	
 	/**
 	 * GUI builds frame, inserts GridBag into frame, and exits on close.
@@ -20,14 +18,12 @@ public class GUI extends JFrame{
 	 */
 	public GUI(Board b){
 		board = b;
-		frame = new JFrame();
-		frame.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GridBagLayout gameFrame = new GridBagLayout();
-		frame.setLayout(gameFrame);
+		setLayout(gameFrame);
 		constraints = new GridBagConstraints();
-//		image = new ImageIcon("Tiles/" + board.getTileAt(i, j).encoding + ".png").getImage();
 	}
 	/**	
 	 * 
@@ -38,22 +34,16 @@ public class GUI extends JFrame{
 		for(int i=0; i<60; i++){
 			for(int j=0; j<60; j++){
 				if(board.getTileAt(i, j)!=null){
-//					image = new ImageIcon("Tiles/" + board.getTileAt(i, j).encoding + ".png").getImage();
-//					JFrame tilePanel = new JFrame();
-//					tilePanel.add(image);
-					JButton b = new JButton(board.getTileAt(i, j).encoding);
+					String check = "Tiles/" + board.getTileAt(i, j).encoding + ".png";
+					JButton b = new JButton(new ImageIcon(check));
 					constraints.gridx=i;
 					constraints.gridy=j;
 					constraints.gridheight = 1;
 					constraints.gridwidth = 1;
-					frame.add(b, constraints);
+					add(b, constraints);
 				}
 			}
 		}
 	}
-	
-//	public void paintComponent(Graphics g){
-//		g.drawImage(image, 0, 0, this);
-//		
-//	}
+
 }

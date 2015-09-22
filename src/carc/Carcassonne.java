@@ -20,7 +20,9 @@ public class Carcassonne {
 		Tile initial = Tile.getInitialTile();
 		b.placeTile(initial, 29, 29);
 		display.updateBoard();
-		
+		display.pack();
+		display.validate();
+		display.repaint();
 	}
 	
 }
