@@ -52,7 +52,6 @@ public class Board {
 	public Tile getRandomTile() {
 		Tile t = tilesFaceDown.get(getRandomTileIndex());
 		tilesFaceDown.remove(t);
-		tileCount--;
 		return t;
 	}
 
