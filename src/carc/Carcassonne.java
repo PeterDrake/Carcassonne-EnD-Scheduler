@@ -18,22 +18,23 @@ public class Carcassonne {
 		b.run();
 		GUI display = new GUI(b);
 		Tile initial = Tile.getInitialTile();
-		b.placeTile(initial, 29, 29);
+		b.placeTile(initial, 6, 6);
 		display.updateBoard();
 		Score.printHighScores();
 
 		while(b.isGameOver()==false){
+
 			Tile t = b.getRandomTile();
 			System.out.println("Where would you like to place this tile? \n" + t);
 			System.out.println("Enter x coordinate: ");
 			int x = s.nextInt();
 			System.out.println("Enter y coordinate: ");
 			int y = s.nextInt();
-			b.placeTile(t, x, y);	
+			b.placeTile(t, x, y);
 			display.pack();
 			display.validate();
 			display.repaint();
-			
+			display.updateBoard();
 			System.out.println("There are " + b.getTileCount() + " tiles left");
 			System.out.println("Do you want to place a follower on this tile? y/n");
 			if(s.next().equals("y")){
@@ -47,9 +48,8 @@ public class Carcassonne {
 				}else{
 					System.out.println("Cannot set follower at Coordinates " + x + ", " +y);
 				}
-				
-				
 			}
+
 		}
 		Score.highScore(b.getPlayers());
 		Score.printHighScores();
