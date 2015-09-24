@@ -33,7 +33,7 @@ public class Board {
 
 	}
 	
-	/**Playes a tile at a given x and y in the array.*/
+	/**Players a tile at a given x and y in the array.*/
 	public void placeTile(Tile tile, int x, int y){
 		tiles[x][y] = tile;
 	}
@@ -134,15 +134,17 @@ public class Board {
 	}
 
 	
-	public char[][] readFileName(){
+	public String[] readFileName(){
 		File folder = new File("Tiles");
 		File[] listOfFiles = folder.listFiles();
-		char[] names = new char[100];
+		String[] names = new String[tileCount];
 		for(int i = 0; i < listOfFiles.length;i++ ){
-			//	names[i] = listOfFiles[i].getName().toCharArray();
-			
+			names[i] = listOfFiles[i].getName();
 		}
-		return null;
+		for(int i = 0; i < listOfFiles.length;i++ ){
+			names[i] = names[i].substring(0,14);
+		}
+		return names;
 		
 		
 	}

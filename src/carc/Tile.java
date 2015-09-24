@@ -14,7 +14,7 @@ public class Tile {
 
 	private Sector en;
 
-	public char[] encoding;
+	public String encoding;
 
 	private Sector es;
 

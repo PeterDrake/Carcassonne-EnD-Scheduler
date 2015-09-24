@@ -56,6 +56,7 @@ public class GUI extends JFrame{
 					constraints.gridheight = 1;
 					constraints.gridwidth = 1;
 					add(button[i][j], constraints);
+	
 				}
 			}
 		}
