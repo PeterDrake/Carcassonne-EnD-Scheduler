@@ -43,7 +43,7 @@ public class BoardTest {
 	}
 	
 	@Test
-	public void placeFollwerTest(){
+	public void placeFollowerTest(){
 		b.placeTile(Tile.getInitialTile(), 1, 1);
 		assertTrue(b.placeFollower(b.getPlayers()[0],"sw", 1, 1));
 		assertFalse(b.placeFollower(b.getPlayers()[0],"middle", 1, 2));
@@ -70,6 +70,18 @@ public class BoardTest {
 		assertEquals(72, b.getTilesFaceDown().size());
 		b.getRandomTile();
 		assertEquals(71, b.getTilesFaceDown().size());
+	}
+	
+	@Test
+	public void isLegalTilePlacementTest(){
+		int x=20, y=20;
+		Tile t = new Tile("rrrreffffffffn");
+		assertTrue(b.isLegalTilePlacement(t, x, y));
+		b.placeTile(t, x, y);
+		Tile s = new Tile("nrrreffffffffn");
+		assertTrue(b.isLegalTilePlacement(s, x+1, y));
+		Tile r = new Tile("nnnnccccccccs");
+		assertFalse(b.isLegalTilePlacement(r, x+1, y));
 	}
 }
 

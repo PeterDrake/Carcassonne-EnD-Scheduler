@@ -8,22 +8,22 @@ public class Player {
 	 private String name;
 	
 
-	private int Score;
+	private int score;
 	 /** Constructor for player. Sets follower number, player name, and player score*/
 	 public Player() {
 		followernum = FOLLOWERLIMIT;
 		name = "player";
-		Score = 0;
+		score = 0;
 	}
 
 	/** Returns player's score*/
 	public int getScore(){
-		return Score;
+		return score;
 	}
 	
 	/** Sets player's score*/
 	public void setScore(int score){
-		Score = score;
+		this.score = score;
 	}
 	
 	/** Returns player's name */

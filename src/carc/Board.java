@@ -169,4 +169,82 @@ public class Board {
 	public void setTileCount(int tc) {
 		this.tileCount = tc;
 	}
+	/**
+	 * checks that tile placement is legal, before placing
+	 * @param tile
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public boolean isLegalTilePlacement(Tile tile, int x, int y){
+		if(x==0 && y==0){
+			if(tiles[x+1][y] == null || tile.getEastTerrain() == tiles[x+1][y].getWestTerrain()){
+				if(tiles[x][y+1] == null || tile.getSouthTerrain() == tiles[x][y+1].getNorthTerrain()){
+					return true;
+				}
+			}
+		}else if(x==0 && y==11){
+			if(tiles[x][y-1] == null || tile.getNorthTerrain() == tiles[x][y-1].getSouthTerrain()){
+				if(tiles[x+1][y] == null || tile.getEastTerrain() == tiles[x+1][y].getWestTerrain()){
+					return true;
+				}
+			}
+		}else if(x==11 && y==11){
+			if(tiles[x][y-1] == null || tile.getNorthTerrain() == tiles[x][y-1].getSouthTerrain()){
+				if(tiles[x-1][y] == null || tile.getWestTerrain() == tiles[x-1][y].getEastTerrain()){
+					return true;
+				}
+			}
+		}else if(x==11 && y==0){
+			if(tiles[x-1][y] == null || tile.getWestTerrain() == tiles[x-1][y].getEastTerrain()){
+				if(tiles[x][y+1] == null || tile.getSouthTerrain() == tiles[x][y+1].getNorthTerrain()){
+					return true;
+				}
+			}
+		}else if(x==0){
+			if(tiles[x][y-1] == null || tile.getNorthTerrain() == tiles[x][y-1].getSouthTerrain()){
+				if(tiles[x][y+1] == null || tile.getSouthTerrain() == tiles[x][y+1].getNorthTerrain()){
+					if(tiles[x+1][y] == null || tile.getEastTerrain() == tiles[x+1][y].getWestTerrain()){
+						return true;
+					}
+				}	
+			}
+		}else if(y==0){
+			if(tiles[x-1][y] == null || tile.getWestTerrain() == tiles[x-1][y].getEastTerrain()){
+				if(tiles[x][y+1] == null || tile.getSouthTerrain() == tiles[x][y+1].getNorthTerrain()){
+					if(tiles[x+1][y] == null || tile.getEastTerrain() == tiles[x+1][y].getWestTerrain()){
+						return true;
+					}
+				}
+			}
+		}else if(x==11){
+			if(tiles[x][y-1] == null || tile.getNorthTerrain() == tiles[x][y-1].getSouthTerrain()){
+				if(tiles[x-1][y] == null || tile.getWestTerrain() == tiles[x-1][y].getEastTerrain()){
+					if(tiles[x][y+1] == null || tile.getSouthTerrain() == tiles[x][y+1].getNorthTerrain()){
+						return true;
+					}
+				}
+			}
+		}else if(y==11){
+			if(tiles[x][y-1] == null || tile.getNorthTerrain() == tiles[x][y-1].getSouthTerrain()){
+				if(tiles[x-1][y] == null || tile.getWestTerrain() == tiles[x-1][y].getEastTerrain()){
+					if(tiles[x+1][y] == null || tile.getEastTerrain() == tiles[x+1][y].getWestTerrain()){
+						return true;
+					}
+				}
+			}
+		}else if(x<60 && y<60){
+			if(tiles[x][y-1] == null || tile.getNorthTerrain() == tiles[x][y-1].getSouthTerrain()){
+				if(tiles[x-1][y] == null || tile.getWestTerrain() == tiles[x-1][y].getEastTerrain()){
+					if(tiles[x][y+1] == null || tile.getSouthTerrain() == tiles[x][y+1].getNorthTerrain()){
+						if(tiles[x+1][y] == null || tile.getEastTerrain() == tiles[x+1][y].getWestTerrain()){
+							return true;
+						}
+					}
+					
+				}
+			}
+		}
+		return false;
+	}
 }

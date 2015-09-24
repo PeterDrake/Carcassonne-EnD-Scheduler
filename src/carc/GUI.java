@@ -18,7 +18,7 @@ public class GUI extends JFrame {
 	private GridBagConstraints constraints;
 	private int x = 0;
 	private int y = 0;
-	
+	private boolean waitButtonClick = true;
 
 	/**
 	 * GUI builds frame, inserts GridBag into frame, and exits on close.
@@ -39,6 +39,7 @@ public class GUI extends JFrame {
 				button[i][j] = new JButton(i + "," + j);
 				action[i][j] = new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						waitButtonClick = false;
 						String action = e.getActionCommand();
 						for (int i = 0; i < 12; i++) {
 							for (int j = 0; j < 12; j++) {
@@ -79,7 +80,7 @@ public class GUI extends JFrame {
 	 * updates display
 	 */
 	public void updateBoard() {
-
+		//waitButtonClick = false;
 		for (int i = 0; i < 12; i++) {
 			for (int j = 0; j < 12; j++) {
 				if (board.getTileAt(i, j) != null) {
@@ -96,6 +97,14 @@ public class GUI extends JFrame {
 				}
 			}
 		}
+	}
+
+	public boolean isWaitButtonClick() {
+		return waitButtonClick;
+	}
+
+	public void setWaitButtonClick(boolean waitButtonClick) {
+		this.waitButtonClick = waitButtonClick;
 	}
 
 }
