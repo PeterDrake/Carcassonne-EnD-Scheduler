@@ -82,5 +82,24 @@ public class Board {
 		}
 		return names;
 	}
-
+	/**
+	 * checks that tile placement is legal, before placing
+	 * @param tile
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public boolean isLegalTilePlacement(Tile tile, int x, int y){
+		if(tiles[x][y-1] == null || tile.getNorthTerrain() == tiles[x][y-1].getSouthTerrain()){
+			if(tiles[x-1][y] == null || tile.getWestTerrain() == tiles[x-1][y].getEastTerrain()){
+				if(tiles[x][y+1] == null || tile.getSouthTerrain() == tiles[x][y+1].getNorthTerrain()){
+					if(tiles[x+1][y] == null || tile.getEastTerrain() == tiles[x+1][y].getWestTerrain()){
+						return true;
+					}
+				}
+				
+			}
+		}
+		return false;
+	}
 }

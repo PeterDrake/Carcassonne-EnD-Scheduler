@@ -41,6 +41,17 @@ public class BoardTest {
 		b.setTileCount(0);
 		assertTrue(b.isGameOver());
 	}
-
+	
+	@Test
+	public void isLegalTilePlacementTest(){
+		int x=20, y=20;
+		Tile t = new Tile("rrrreffffffffn");
+		assertTrue(b.isLegalTilePlacement(t, x, y));
+		b.placeTile(t, x, y);
+		Tile s = new Tile("nrrreffffffffn");
+		assertTrue(b.isLegalTilePlacement(s, x+1, y));
+		Tile r = new Tile("nnnnccccccccs");
+		assertFalse(b.isLegalTilePlacement(r, x+1, y));
+	}
 }
 
