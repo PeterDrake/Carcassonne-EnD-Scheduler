@@ -21,7 +21,9 @@ public class Carcassonne {
 		b.placeTile(initial, 6, 6);
 		display.updateBoard();
 
-		while(true){
+
+		while(b.isGameOver()==false){
+
 			Tile t = b.getRandomTile();
 			System.out.println("Where would you like to place this tile? \n" + t);
 			System.out.println("Enter x coordinate: ");
@@ -33,9 +35,23 @@ public class Carcassonne {
 			display.validate();
 			display.repaint();
 			display.updateBoard();
-		}
-		
+			System.out.println("There are " + b.getTileCount() + " tiles left");
+			System.out.println("Do you want to place a follower on this tile? y/n");
+			if(s.next().equals("y")){
+				System.out.println("Which sector do you want to place them in? ne/nw/en/es/se/sw/ws/wn/middle/north/south/east/west");
+				String sec = s.next();
+				boolean bool = b.placeFollower(b.getPlayers()[0],sec,x, y);
+				if(bool == true){
+					System.out.println("The tile at coordinates " + x + "," + y + " has a follower at " + b.getTileAt(x, y).hasFollower() + "owned by " + b.getPlayers()[0].getName() + " who has " + b.getPlayers()[0].getFollowernum() + " followers left");
+				}else{
+					System.out.println("Cannot set follower at Coordinates " + x + ", " +y);
+				}
+			}
 
+		}
 	}
+		
+		
+	
 	
 }

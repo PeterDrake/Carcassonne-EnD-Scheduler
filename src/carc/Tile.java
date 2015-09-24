@@ -41,21 +41,21 @@ public class Tile {
 	private Sector ws;
 
 	/** This constructor creates the initial tile. */
-	public Tile() {
-		nw = new Sector(CASTLE);
-		ne = new Sector(CASTLE);
-		wn = new Sector(FARM);
-		ws = new Sector(FARM);
-		sw = new Sector(FARM);
-		se = new Sector(FARM);
-		es = new Sector(FARM);
-		en = new Sector(FARM);
-		west = new Sector(ROAD);
-		east = new Sector(ROAD);
-		middle = new Sector(ROAD);
-		north = new Sector(null);
-		south = new Sector(null);
-	}
+//	public Tile() {
+//		nw = new Sector(CASTLE);
+//		ne = new Sector(CASTLE);
+//		wn = new Sector(FARM);
+//		ws = new Sector(FARM);
+//		sw = new Sector(FARM);
+//		se = new Sector(FARM);
+//		es = new Sector(FARM);
+//		en = new Sector(FARM);
+//		west = new Sector(ROAD);
+//		east = new Sector(ROAD);
+//		middle = new Sector(ROAD);
+//		north = new Sector(null);
+//		south = new Sector(null);
+//	}
 
 	/**
 	 * Constructor for all tiles(except initial tile).
@@ -79,19 +79,19 @@ public class Tile {
 				tileStuff[x] = null;
 			}
 		}
-		north = new Sector(tileStuff[0]);
-		east = new Sector(tileStuff[1]);
-		south = new Sector(tileStuff[2]);
-		west = new Sector(tileStuff[3]);
-		middle = new Sector(tileStuff[4]);
-		nw = new Sector(tileStuff[5]);
-		ne = new Sector(tileStuff[6]);
-		en = new Sector(tileStuff[7]);
-		es = new Sector(tileStuff[8]);
-		se = new Sector(tileStuff[9]);
-		sw = new Sector(tileStuff[10]);
-		ws = new Sector(tileStuff[11]);
-		wn = new Sector(tileStuff[12]);
+		north = new Sector("north", tileStuff[0]);
+		east = new Sector("east", tileStuff[1]);
+		south = new Sector("south", tileStuff[2]);
+		west = new Sector("west", tileStuff[3]);
+		middle = new Sector("middle", tileStuff[4]);
+		nw = new Sector("nw", tileStuff[5]);
+		ne = new Sector("ne",tileStuff[6]);
+		en = new Sector("en",tileStuff[7]);
+		es = new Sector("es",tileStuff[8]);
+		se = new Sector("se",tileStuff[9]);
+		sw = new Sector("sw", tileStuff[10]);
+		ws = new Sector("ws", tileStuff[11]);
+		wn = new Sector("wn",tileStuff[12]);
 		if (tileEncoding.charAt(13) == 's') {
 			sheild = true;
 		} else {
@@ -210,35 +210,35 @@ public class Tile {
 	}
 
 	/** Checks the tile in every Sector to see if it has a follower on it */
-	public boolean hasFollower() {
+	public String hasFollower() {
 		if (east.getFollowerOwner() != null) {
-			return true;
+			return east.getSectorName();
 		} else if (en.getFollowerOwner() != null) {
-			return true;
+			return en.getSectorName();
 		} else if (es.getFollowerOwner() != null) {
-			return true;
+			return es.getSectorName();
 		} else if (middle.getFollowerOwner() != null) {
-			return true;
+			return middle.getSectorName();
 		} else if (ne.getFollowerOwner() != null) {
-			return true;
+			return ne.getSectorName();
 		} else if (north.getFollowerOwner() != null) {
-			return true;
+			return north.getSectorName();
 		} else if (nw.getFollowerOwner() != null) {
-			return true;
+			return nw.getSectorName();
 		} else if (se.getFollowerOwner() != null) {
-			return true;
+			return se.getSectorName();
 		} else if (south.getFollowerOwner() != null) {
-			return true;
+			return south.getSectorName();
 		} else if (sw.getFollowerOwner() != null) {
-			return true;
+			return sw.getSectorName();
 		} else if (west.getFollowerOwner() != null) {
-			return true;
+			return west.getSectorName();
 		} else if (wn.getFollowerOwner() != null) {
-			return true;
+			return wn.getSectorName();
 		} else if (ws.getFollowerOwner() != null) {
-			return true;
+			return ws.getSectorName();
 		}
-		return false;
+		return null;
 	}
 
 	public Tile returnTile() {

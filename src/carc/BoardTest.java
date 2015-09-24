@@ -19,7 +19,7 @@ public class BoardTest {
 
 	@Test
 	public void placeTileTest() {
-		Tile tile = new Tile();
+		Tile tile = Tile.getInitialTile();
 		b.placeTile(tile, 1, 1);
 		assertEquals(tile, b.getTileAt( 1, 1));
 	}
@@ -44,10 +44,10 @@ public class BoardTest {
 	
 	@Test
 	public void placeFollwerTest(){
-		b.placeTile(new Tile(), 1, 1);
+		b.placeTile(Tile.getInitialTile(), 1, 1);
 		
-		assertTrue(b.placeFollower(b.getPlayers()[0], 1, 1));
-		assertFalse(b.placeFollower(b.getPlayers()[0], 1, 2));
+		assertTrue(b.placeFollower(b.getPlayers()[0],"sw", 1, 1));
+		assertFalse(b.placeFollower(b.getPlayers()[0],"middle", 1, 2));
 		assertEquals(6, b.getPlayers()[0].getFollowernum());
 	}
 

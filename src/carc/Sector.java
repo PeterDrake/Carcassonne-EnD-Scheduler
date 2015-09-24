@@ -3,13 +3,14 @@ package carc;
 public class Sector {
 	
 	private Terrain terrain;
-	
+	private String name;
 	private Player owner;
 	
 	
 	/**Constructor for the Sector*/
-	public Sector(Terrain t){
+	public Sector(String name, Terrain t){
 		terrain = t;
+		this.name = name;
 	}	
 	/**Setter to set Terrain*/
 	public void setTerrain(Terrain t){
@@ -28,6 +29,10 @@ public class Sector {
 	/**Getter to get Followers Owner*/
 	public Player getFollowerOwner() {
 		return owner;
+	}
+	
+	public String getSectorName(){
+		return name;
 	}
 
 

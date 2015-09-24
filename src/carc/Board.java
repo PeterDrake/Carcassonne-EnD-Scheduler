@@ -36,6 +36,8 @@ public class Board {
 	/**Players a tile at a given x and y in the array.*/
 	public void placeTile(Tile tile, int x, int y){
 		tiles[x][y] = tile;
+		tileCount--;
+		
 	}
 	
 	public Tile getTileAt(int x, int y){
@@ -74,7 +76,7 @@ public class Board {
 	}
  /** Run method. Also lets people enter their names*/
 	public void run() {
-		Tile t = new Tile();
+		Tile t = Tile.getInitialTile();
 		int x,y;
 		Scanner scan = new Scanner(System.in);
 		placeTile(t, 30, 30);
@@ -90,25 +92,7 @@ public class Board {
 			System.out.println(players[i].getName() + " has " + players[i].getFollowernum() + " followers");
 		}
 		System.out.println("Game over = " + isGameOver());
-		while(true){
-		System.out.println("Do you want to place a follower? y/n");
-		if(scan.next().equals("y")){
-			System.out.println("Enter x coordinate: ");
-			x = scan.nextInt();
-			System.out.println("Enter y coordinate: ");
-			y = scan.nextInt();
-			
-			boolean b = placeFollower(players[0], x, y);
-			if(b == true){
-				System.out.println("The tile at coordinates " + x + "," + y + " has a follower owned by " + players[0].getName() + " who has " + players[0].getFollowernum() + " followers left");
-			}else{
-				System.out.println("Cannot set follower at Coordinates " + x + ", " +y);
-			}
-			
-		}else{
-			break;
-		}
-		}
+		
 		//readFileName();
 	}
 	
@@ -119,15 +103,39 @@ public class Board {
 	}
 
 
-	public boolean placeFollower(Player p, int x, int y){
-		if(getTileAt(x,y) == null){
+	public boolean placeFollower(Player p, String s, int x, int y){
+		if(getTileAt(x,y) == null || p.getFollowernum() == 0 || s == null){
 			return false;
 		}
-		else if(p.getFollowernum() == 0){
-			return false;
+		switch(s){
+		case "ne" :  getTileAt(x,y).getNE().setFollower(p);
+		break;
+		case "nw" : getTileAt(x,y).getNW().setFollower(p);
+		break;
+		case "se" :  getTileAt(x,y).getSE().setFollower(p);
+		break;
+		case "sw" : getTileAt(x,y).getSW().setFollower(p);
+		break;
+		case "en" :  getTileAt(x,y).getES().setFollower(p);
+		break;
+		case "es" : getTileAt(x,y).getES().setFollower(p);
+		break;
+		case "ws" :  getTileAt(x,y).getWS().setFollower(p);
+		break;
+		case "wn" : getTileAt(x,y).getWN().setFollower(p);
+		break;
+		case "middle" :  getTileAt(x,y).getMiddle().setFollower(p);
+		break;
+		case "north" : getTileAt(x,y).getNorth().setFollower(p);
+		break;
+		case "east" : getTileAt(x,y).getEast().setFollower(p);
+		break;
+		case "south" : getTileAt(x,y).getSouth().setFollower(p);
+		break;
+		case "west" : getTileAt(x,y).getWest().setFollower(p);
+		break;
 		}
 		
-		getTileAt(x,y).getNE().setFollower(p);
 		
 		p.setFollowernum(p.getFollowernum() - 1);
 		return true;
