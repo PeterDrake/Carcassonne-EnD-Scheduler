@@ -179,14 +179,16 @@ public class Board {
 	 * @return
 	 */
 	public boolean isLegalTilePlacement(Tile tile, int x, int y){
-		if(tiles[x][y-1] == null || tile.getNorthTerrain() == tiles[x][y-1].getSouthTerrain()){
-			if(tiles[x-1][y] == null || tile.getWestTerrain() == tiles[x-1][y].getEastTerrain()){
-				if(tiles[x][y+1] == null || tile.getSouthTerrain() == tiles[x][y+1].getNorthTerrain()){
-					if(tiles[x+1][y] == null || tile.getEastTerrain() == tiles[x+1][y].getWestTerrain()){
-						return true;
+		if(x<60 && y<60){
+			if(tiles[x][y-1] == null || tile.getNorthTerrain() == tiles[x][y-1].getSouthTerrain()){
+				if(tiles[x-1][y] == null || tile.getWestTerrain() == tiles[x-1][y].getEastTerrain()){
+					if(tiles[x][y+1] == null || tile.getSouthTerrain() == tiles[x][y+1].getNorthTerrain()){
+						if(tiles[x+1][y] == null || tile.getEastTerrain() == tiles[x+1][y].getWestTerrain()){
+							return true;
+						}
 					}
+					
 				}
-				
 			}
 		}
 		return false;
