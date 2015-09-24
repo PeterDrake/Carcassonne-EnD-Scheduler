@@ -151,17 +151,15 @@ public class Board {
 
 	/** Run method. Also lets people enter their names */
 	public void run() {
-		Tile t = Tile.getInitialTile();
 		Scanner scan = new Scanner(System.in);
-		placeTile(t, 30, 30);
+		placeTile(Tile.getInitialTile(), 6, 6);
 
 		for (int i = 1; i < players.length + 1; i++) {
 			System.out.println("Enter name for player " + i + ": ");
 			players[i - 1].setName(scan.next());
 		}
 		displayScore();
-		System.out.println("Board Created");
-		System.out.println("Tile placed at 30, 30");
+		
 		for (int i = 0; i < players.length; i++) {
 			System.out.println(players[i].getName() + " has " + players[i].getFollowernum() + " followers");
 		}

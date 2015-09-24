@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Carcassonne {
+	
 
 	/** Main method creates board, enters number of players, and calls Gui*/
 	public static void main(String [] args){		
@@ -17,20 +18,11 @@ public class Carcassonne {
 		Board b = new Board(numplayers);
 		b.run();
 		GUI display = new GUI(b);
-		Tile initial = Tile.getInitialTile();
-		b.placeTile(initial, 6, 6);
 		display.updateBoard();
 
-
 		while(b.isGameOver()==false){
-
-			Tile t = b.getRandomTile();
-			System.out.println("Where would you like to place this tile? \n" + t);
-			System.out.println("Enter x coordinate: ");
-			int x = s.nextInt();
-			System.out.println("Enter y coordinate: ");
-			int y = s.nextInt();
-			b.placeTile(t, x, y);
+			int x = display.getX();
+			int y = display.getY();
 			display.pack();
 			display.validate();
 			display.repaint();
@@ -47,7 +39,6 @@ public class Carcassonne {
 					System.out.println("Cannot set follower at Coordinates " + x + ", " +y);
 				}
 			}
-
 		}
 	}
 		
