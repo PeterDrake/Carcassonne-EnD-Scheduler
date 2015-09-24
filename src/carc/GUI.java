@@ -36,6 +36,7 @@ public class GUI extends JFrame{
 				if(board.getTileAt(i, j)!=null){
 					String check = "Tiles/" + board.getTileAt(i, j).encoding + ".png";
 					JButton b = new JButton(new ImageIcon(check));
+					JButton x = new JButton(new ImageIcon(check));
 					constraints.gridx=i;
 					constraints.gridy=j;
 					constraints.gridheight = 1;

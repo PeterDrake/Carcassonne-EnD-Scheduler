@@ -141,4 +141,9 @@ public class Board {
 		tilesFaceDown.remove(t);
 		return t;
 	}
+	
+	public boolean legalTilePlacement(Tile tile, int x, int y){
+		
+		return false;
+	}
 }
