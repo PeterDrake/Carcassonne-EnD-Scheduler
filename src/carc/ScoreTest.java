@@ -24,6 +24,8 @@ public class ScoreTest {
 		s = new Score(b);
 		p1 = new Player();
 		p2 = new Player();
+		p1.setName("Player1");
+		p2.setName("Player2");
 		
 	}
 
